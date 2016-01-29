@@ -1,0 +1,8 @@
+<h1>EDIT YOUR USEr</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.file_field :avatar %>
+  <%= f.submit "Save Changes" %>
+<% end %>
