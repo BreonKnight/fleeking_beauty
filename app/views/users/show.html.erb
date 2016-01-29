@@ -1,4 +1,8 @@
 <div>
   Welcome, <%= @user.userName %>
   <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
+  <%= button_to "Edit", edit_user_path, method: :get %>
+
+	<%= button_to "Delete", @user, method: :delete %>
+
 </div>
