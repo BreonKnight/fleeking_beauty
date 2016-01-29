@@ -1,11 +1,16 @@
-Login
-
-<%= form_for @user, url: "/sessions", method: "post" do |f| %>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <%= f.submit "Sign In" %>
-<% end %>
+<div class="container">
+	<h1 class="text-center info-banner center-block"> Login </h1>
+	<%= form_for @user, url: "/sessions", method: "post" do |f| %>
+		<div class="half center-block"> 
+			<div class="form-group">
+				<%= f.label(:email, "Email") %>
+				<%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label(:password, "Password") %>
+				<%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+			</div>
+			<%= f.submit "Sign In", class: "btn btn-default center-block" %>
+		</div>
+	<% end %>
+</div>
