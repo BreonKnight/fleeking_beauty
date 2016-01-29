@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 20160129192852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "places", force: :cascade do |t|
-    t.string   "name"
-    t.string   "lat"
-    t.string   "lon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "downvotes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,6 +23,14 @@ ActiveRecord::Schema.define(version: 20160129192852) do
   end
 
   add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lat"
+    t.string   "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "upvotes", force: :cascade do |t|
     t.datetime "created_at", null: false
