@@ -22,9 +22,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    user_id = params[:id]
+    @user = User.find_by_id(user_id)
+    render :edit
   end
 
   def update
+    user_id = params[:id]
+    user = User.find_by_id(user_id)
+    user_edit_params = params.require(:user).permit(:first_name, :last_name, :avatar)
+    user.update_attributes(user_edit_params)
+    redirect_to user_path(user)
   end
 
   def destroy
