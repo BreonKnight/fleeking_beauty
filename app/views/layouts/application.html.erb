@@ -6,16 +6,28 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<ul>
-	  <% if current_user %>
-	    <li><%= link_to "Profile", user_path(current_user) %></li>
-	    <li><%= link_to "Log Out", logout_path %></li>
-	  <% else %>
-	    <li><%= link_to "Create Account", new_user_path %></li>
-	    <li><%= link_to "Log In", login_path %></li>
-	  <% end %>
-	</ul>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">Home</a>
+	    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="navbar-collapse" id="travel-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+				  <% if current_user %>
+				    <li><%= link_to"Profile", user_path(current_user) %></li>
+				    <li><%= link_to "Log Out", logout_path %></li>
+				  <% else %>
+				    <li><%= link_to "Sign Up", new_user_path %></li>
+				    <li><%= link_to "Log In", login_path %></li>
+				  <% end %>
+			  </ul>
+
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
 
 	<% flash.each do |name, msg| %>
 	  <p>

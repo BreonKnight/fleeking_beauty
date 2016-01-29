@@ -1,8 +1,13 @@
-<div>
-  Welcome, <%= @user.userName %>
-  <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
-  <%= button_to "Edit", edit_user_path, method: :get %>
+<div class="container prof">
+	<div class="row">
+		<div class="col-md-12">
+			  <h2 class="text-center">Welcome, <%= @user.userName %> </h2>
+			  <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
+			  <h3><%=@user.first_name%> <%=@user.last_name%></h3>
+			  <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
 
-	<%= button_to "Delete", @user, method: :delete %>
+				<%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
 
+		</div>
+	</div>
 </div>
