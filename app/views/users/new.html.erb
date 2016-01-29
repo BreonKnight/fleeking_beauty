@@ -1,24 +1,33 @@
-Sign Up
-
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
-  </div>
-  <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-  </div>
-  <div>
-    <%= f.text_field :userName, placeholder: "User Name" %>
-  </div>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <div>
-  	<%= f.file_field :avatar %>
-  </div>
-  <br>
-  <%= f.submit "Sign Up" %>
-<% end %>
+<div class="container">
+  <h1 class="text-center info-banner center-block">Sign Up</h1>
+  <%= form_for @user do |f| %>
+    <div class="half center-block">
+      <div class="form-group">
+        <%= f.label(:first_name, "First Name") %>
+        <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label(:last_name, "Last Name") %>
+        <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label(:userName, "User Name") %>
+        <%= f.text_field :userName, placeholder: "User Name", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label(:email, "Email") %>
+        <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label(:password, "Password") %>
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label(:avatar, "Upload an avatar") %>
+      	<%= f.file_field :avatar %>
+      </div>
+      <br>
+      <%= f.submit "Sign Up", class: "btn btn-default center-block" %>
+    </div>
+  <% end %>
+</div>
