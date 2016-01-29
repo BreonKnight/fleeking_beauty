@@ -16,5 +16,9 @@ Sign Up
   <div>
     <%= f.password_field :password, placeholder: "Password" %>
   </div>
+  <div>
+  	<%= f.file_field :avatar %>
+  </div>
+  <br>
   <%= f.submit "Sign Up" %>
 <% end %>
