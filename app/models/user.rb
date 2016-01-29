@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 	has_secure_password
 
-  has_many :votes
+  has_many :upvotes
+  has_many :downvotes
 
 	def self.confirm(params)
 	  @user = User.find_by({email: params[:email]})
