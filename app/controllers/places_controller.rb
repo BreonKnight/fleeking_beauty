@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by_id(params[:id])
+    @urls = search(@place)
   end
 
   # def edit
