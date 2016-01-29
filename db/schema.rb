@@ -32,12 +32,20 @@ ActiveRecord::Schema.define(version: 20160129192852) do
 
   add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
 
+  create_table "places", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "upvotes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "place_id"
   end
 
+  add_index "upvotes", ["place_id"], name: "index_upvotes_on_place_id", using: :btree
   add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -55,5 +63,6 @@ ActiveRecord::Schema.define(version: 20160129192852) do
   end
 
   add_foreign_key "downvotes", "users"
+  add_foreign_key "upvotes", "places"
   add_foreign_key "upvotes", "users"
 end
