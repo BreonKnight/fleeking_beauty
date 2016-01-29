@@ -7,7 +7,14 @@
 			  <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
 
 				<%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
-
 		</div>
+	</div>
+</div>
+<div class ="container prof">
+	<div class = "row">
+	<br>
+	Total Upvotes: <%= @user.upvotes.count  %> 
+	<br>
+	Total Downvotes: <%= @user.upvotes.count  %> 
 	</div>
 </div>
