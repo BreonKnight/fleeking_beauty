@@ -1,8 +1,21 @@
-<h1>EDIT YOUR USEr</h1>
+<div class="container">
+	<h1 class="text-center info-banner center-block">Edit your account</h1>
 
-<%= form_for @user do |f| %>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
-  <%= f.file_field :avatar %>
-  <%= f.submit "Save Changes" %>
-<% end %>
+	<%= form_for @user do |f| %>
+		<div class="half center-block"> 
+			<div class="form-group">
+				<%= f.label(:first_name, "First Name", class: "form-control text-center") %>
+				<%= f.text_field :first_name, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label(:last_name, "Last Name", class: "form-control text-center") %>
+				<%= f.text_field :last_name, class: "form-control" %>
+			</div>
+			<div class="form-group half center-block">
+				<%= f.label(:avatar, "Avatar", class: "form-control text-center") %>
+				<%= f.file_field :avatar %>
+			</div>
+			<%= f.submit "Update Profile", class: "btn btn-default center-block" %>
+		</div>
+	<% end %>
+</div>
