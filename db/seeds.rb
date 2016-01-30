@@ -9,7 +9,7 @@
   # ])
 
 Place.create([
-  { name: 'Chicago' },
-  { lat: '41.8369' },
-  { lon: '87.6847' }
+  name: 'Chicago',
+  lat: '41.8369',
+  lon: '87.6847'
   ])
