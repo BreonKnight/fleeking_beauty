@@ -50,9 +50,6 @@ module SearchHelper
 
   def searchFlickr(place) 
     @api_key=ENV['FLICKR_KEY']
-    # using coordinates as queries limits the search too much
-    # @lat = place.lat.to_f
-    # @lon = place.lon.to_f
     flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search" +
     "&format=json&nojsoncallback=1" +
     "&api_key=#{@api_key}" +
@@ -62,7 +59,9 @@ module SearchHelper
     "&tags=outdoor,+#{place.name}" +
     # boolean AND for tags
     "&tag_mode=all" +
+    # Limits results to 1 page
     "&page=1" +
+    # Limits results per-page to 20 photos
     "&per_page=20"
     response = Net::HTTP.get_response(URI.parse(flickrSearch))
     data = response.body
