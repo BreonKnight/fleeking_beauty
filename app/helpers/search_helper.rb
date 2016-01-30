@@ -48,15 +48,8 @@ module SearchHelper
 
   end
 
-<<<<<<< HEAD
-  def search(place) 
-    @api_key=ENV['FLICKR_KEY']
-    @lat = place.lat.to_f
-    @lon = place.lon.to_f
-    flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=#{@api_key}&lat=#{@lat}&lon=#{@lon}&format=json&nojsoncallback=1&page=1&per_page=5"
-=======
   def searchFlickr(place) 
-    @api_key=""
+    @api_key=ENV['FLICKR_KEY']
     # using coordinates as queries limits the search too much
     # @lat = place.lat.to_f
     # @lon = place.lon.to_f
@@ -71,7 +64,6 @@ module SearchHelper
     "&tag_mode=all" +
     "&page=1" +
     "&per_page=20"
->>>>>>> 9f37cd84ccca8351bb90f00eb9540ea4de2c77df
     response = Net::HTTP.get_response(URI.parse(flickrSearch))
     data = response.body
     data = JSON.parse(data)
