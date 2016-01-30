@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   get "/vote", to: "votes#new"
+
+  get "graph/index"
+  get "graph/data", :defaults => { :format => 'json'}
+
 end
