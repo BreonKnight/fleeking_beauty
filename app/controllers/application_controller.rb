@@ -5,5 +5,5 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include SearchHelper
   respond_to :json
-
+  respond_to :js
 end
