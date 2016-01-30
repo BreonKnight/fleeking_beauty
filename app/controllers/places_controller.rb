@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  include SearchHelper
+
   def index
     @places = Place.all
   end
@@ -20,7 +22,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by_id(params[:id])
-    @urls = search(@place)
+    @urls = searchFlickr(@place)
   end
 
   # def edit
