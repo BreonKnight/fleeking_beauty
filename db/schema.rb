@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129192852) do
+ActiveRecord::Schema.define(version: 20160130004044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20160129192852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "place_id"
   end
 
+  add_index "downvotes", ["place_id"], name: "index_downvotes_on_place_id", using: :btree
   add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
 
   create_table "places", force: :cascade do |t|
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160129192852) do
     t.datetime "avatar_updated_at"
   end
 
+  add_foreign_key "downvotes", "places"
   add_foreign_key "downvotes", "users"
   add_foreign_key "upvotes", "users"
 end
