@@ -48,7 +48,7 @@ module SearchHelper
   end
 
   def search(place) 
-    @api_key="27a19bcef1138ae6bb69dc5aba22c94e"
+    @api_key=ENV['FLICKR_KEY']
     @lat = place.lat.to_f
     @lon = place.lon.to_f
     flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=#{@api_key}&lat=#{@lat}&lon=#{@lon}&format=json&nojsoncallback=1&page=1&per_page=5"
