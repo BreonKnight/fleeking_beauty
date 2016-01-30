@@ -39,7 +39,7 @@ module SearchHelper
       @id = photo['id']
       @secret = photo['secret']
 
-      url = "https://farm#{@farm_id}.staticflickr.com/#{@server_id}/#{@id}_#{@secret}.jpg"
+      url = "https://farm#{@farm_id}.staticflickr.com/#{@server_id}/#{@id}_#{@secret}_b.jpg"
       
       @urls << url
     end
@@ -56,9 +56,11 @@ module SearchHelper
     # limits results to photos only
     "&content_type=1" +
     # using tags to limit search to place name and outdoor
-    "&tags=outdoor,+#{place.name}" +
+    "&tags=#{place.name}" +
     # boolean AND for tags
     "&tag_mode=all" +
+    # only request publicly available photos
+    "&privacy_filter=1"+
     # Limits results to 1 page
     "&page=1" +
     # Limits results per-page to 20 photos
