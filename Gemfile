@@ -28,9 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "paperclip", "~> 4.3"
 
-gem 'flickraw'
-
 gem 'responders', '~> 2.0'
+
+gem 'd3-rails', '~> 3.5', '>= 3.5.11'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
