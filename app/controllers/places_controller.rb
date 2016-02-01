@@ -23,6 +23,9 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find_by_id(params[:id])
     @urls = searchFlickr(@place)
+    @upvotes = @place.upvotes.count
+    @downvotes = @place.downvotes.count
+
   end
 
   # def edit
