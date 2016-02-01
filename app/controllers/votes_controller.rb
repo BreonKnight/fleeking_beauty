@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   def new
-    @n = 1
+    @n = rand(0..6)
     first = Place.first
     last = Place.last
     #need to include something to test if the place id actually exists
@@ -12,18 +12,12 @@ class VotesController < ApplicationController
 
   def create
     if(params[:upvote]) 
-      # p "Expecting vote parameters #{vote_params}"
       Upvote.create(user_id: current_user.id, place_id: params[:place], photourl: params[:photourl])
       p "you created a new upvote"
     elsif(params[:downvote])
       Downvote.create(user_id: current_user.id, place_id: params[:place], photourl: params[:photourl])
       p "you created a new downvote"
     end
-    # if this is a upvote
-    #   create an upvote
-    # if this is an downvote
-    #   create a downvote
   end
-
 end
 
