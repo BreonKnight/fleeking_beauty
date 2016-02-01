@@ -19,15 +19,17 @@
 $.ajax({
   type: "GET",
   contentType: "application/json; charset=utf-8",
-  url: 'data',
+  url: '/places/show',
   dataType: 'json',
   success: function (data) {
     draw(data);
+
   },
   error: function (result) {
     error();
   }
 });
+
  
 //drawing logic
 function draw(data) {
