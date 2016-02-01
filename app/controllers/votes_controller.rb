@@ -12,10 +12,11 @@ class VotesController < ApplicationController
 
   def create
     if(params[:upvote]) 
-      Upvote.create(user_id: current_user.id, place_id: params[:place])
+      # p "Expecting vote parameters #{vote_params}"
+      Upvote.create(user_id: current_user.id, place_id: params[:place], photourl: params[:photourl])
       p "you created a new upvote"
     elsif(params[:downvote])
-      Downvote.create(user_id: current_user.id, place_id: params[:place])
+      Downvote.create(user_id: current_user.id, place_id: params[:place], photourl: params[:photourl])
       p "you created a new downvote"
     end
     # if this is a upvote
@@ -23,5 +24,6 @@ class VotesController < ApplicationController
     # if this is an downvote
     #   create a downvote
   end
+
 end
 
