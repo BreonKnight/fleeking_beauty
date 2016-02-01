@@ -1,5 +1,10 @@
 <h1>Vote</h1>
 <br>
 <br>
+
+<%= image_tag("#{@photo_array[@n]}", size: "350", id: "current_img", value: "#{@place.id}") 
+%>
+<br>
+<br>
 <button type = "button" id = "hotbut" class = ".btn-lg" >HOT</button>
 <button type = "button" id = "notbut" class = ".btn-lg">NOT</button>

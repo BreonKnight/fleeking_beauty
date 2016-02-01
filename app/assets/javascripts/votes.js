@@ -1,12 +1,26 @@
 $(document).ready(function() {
 	console.log("Sanity check is working!");
-	
+
 	$('#hotbut').on("click", function (e) {
-	console.log("THAT'S HOT");
+		p_id = $('#current_img').attr('value')
+		$.ajax({
+			method: "POST",
+			url: "/vote/create",
+			data: {upvote: true, place: p_id},
+			success: function (e) {
+			}
+		});
 	});
 
 	$('#notbut').on("click", function (e) {
-	console.log("THAT'S NOT. Ew.");
+		p_id = $('#current_img').attr('value')
+		$.ajax({
+			method: "POST",
+			url: "/vote/create",
+			data: {downvote: true, place: p_id},
+			success: function (e) {
+			}
+		});
 	});
-
+	
 });
