@@ -3,7 +3,7 @@ require 'json'
 require 'net/http'
  
 module SearchHelper
-
+    
   def getFlickrURLs(data)
     #format received:
     # {"photos"=>
