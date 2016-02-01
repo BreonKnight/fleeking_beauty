@@ -11,7 +11,4 @@ Rails.application.routes.draw do
   get "/vote", to: "votes#new"
   post "/vote/create", to: "votes#create"
 
-  get "graph/index"
-  get "graph/data", :defaults => { :format => 'json'}
-
 end
