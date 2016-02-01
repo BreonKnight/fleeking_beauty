@@ -4,9 +4,11 @@
 			  <h2 class="text-center">Welcome, <%= @user.userName %> </h2>
 			  <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
 			  <h3><%=@user.first_name%> <%=@user.last_name%></h3>
+			  <% if currrent_user == @user %>
 			  <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
 
 				<%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
+				<% end %>
 		</div>
 	</div>
 </div>
@@ -15,6 +17,6 @@
 	<br>
 	Total Upvotes: <%= @user.upvotes.count  %> 
 	<br>
-	Total Downvotes: <%= @user.upvotes.count  %> 
+	Total Downvotes: <%= @user.downvotes.count  %> 
 	</div>
 </div>

@@ -9,30 +9,30 @@
   # ])
 
 #Fake User Data
-User.create([
+User.create(
 	email: 'youMad@gmail.com',
 	first_name: "Breon",
 	last_name: "Knight",
 	userName: "ballin",
 	password_digest: "haha"
-	])
+	)
 
-User.create([
+User.create(
 	email: 'Is@gmail.com',
 	first_name: "Is",
 	last_name: "A",
 	userName: "italian",
 	password_digest: "haha"
-	])
+	)
 
 
 #Fake Place data
 
-Place.create([
+Place.create(
   name: 'Chicago',
   lat: '41.8369',
   lon: '87.6847'
-  ])
+  )
 
 #Seeded voting on location
 20.times do 
