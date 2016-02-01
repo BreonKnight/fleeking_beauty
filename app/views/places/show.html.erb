@@ -1,0 +1,8 @@
+<div>
+  Welcome, <%= @place.name %>
+
+  <% @urls.each do |url| %>
+    <%= image_tag url, size: "320x426", class: "img-responsive" %>
+  <% end %>
+
+</div>

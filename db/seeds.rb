@@ -2,6 +2,14 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# place = Place.create([
+  # { name: 'Chicago' },
+  # { lat: '41.8369' },
+  # { lon: '87.6847' }
+  # ])
+
+Place.create([
+  name: 'Chicago',
+  lat: '41.8369',
+  lon: '87.6847'
+  ])
