@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include GraphHelper
+  include SearchHelper
   # This allows jQuery to interact with the controllers
   respond_to :js, :html
 end
