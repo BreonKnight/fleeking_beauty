@@ -29,10 +29,11 @@ $.ajax({
   }
 });
  
+//drawing logic
 function draw(data) {
   var color = d3.scale.category20b();
-  var width = 420,
-    barHeight = 20;
+  var width = 1000,
+    barHeight = 100;
 
   var x = d3.scale.linear()
     .range([0, width])
