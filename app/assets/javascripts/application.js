@@ -96,7 +96,7 @@ $( document ).ready(function () {
       //define height of bar
       .attr("height", barHeight)
       //define color of bar
-      .style("fill", "#FF3300");
+      .style("fill", "#ff0080");
 
     bar.append("text")
       .attr("x", width - 50 )
