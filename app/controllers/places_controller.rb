@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
-  include SearchHelper
 
   def index
     @places = Place.all
@@ -35,7 +34,7 @@ class PlacesController < ApplicationController
     @downvotes = @place.downvotes.count
 
     #takes the upvotes and divides it by the downvotes and creates a ratio
-    @hotness = @upvotes / @downvotes
+    @vote_percentage = calculate_upvote_percentage(@upvotes,@downvotes)
 
   end
 
