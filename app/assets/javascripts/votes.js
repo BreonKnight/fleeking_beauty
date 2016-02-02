@@ -30,7 +30,11 @@ $(document).ready(function() {
 			dataType: 'json',
 			data: {downvote: true, place: p_id, photourl: p_url},
 			success: function (newImg) {
-				console.log(e);
+				imgUrl = newImg.url;
+				imgPlace = newImg.place;
+				replacement_image ="<img src='"+imgUrl+"'"+" value='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
+				console.log("Replacing", replacement_image);
+				$('#current_img').replaceWith(replacement_image);
 			}
 		});
 	});
