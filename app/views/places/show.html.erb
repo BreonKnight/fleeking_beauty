@@ -1,8 +1,14 @@
-<div>
+<div class="container">
   Welcome, <%= @place.name %>
 
-  <% @urls.each do |url| %>
-    <%= image_tag url, size: "320x426", class: "img-responsive" %>
-  <% end %>
+	<p data-upvotes=<%= @upvotes %> data-downvotes=<%= @downvotes %> ><strong> hotness </strong> <%= @hotness %> </p>
 
+	<svg id="graph"></svg>
+	<div class="row">
+			<% @urls.each do |url| %>
+				<div class="col-md-4 photoTile">
+				<%= image_tag url, size: "320x426", class: "img-responsive" %>
+				</div>
+			<% end %>
+	</div>
 </div>
