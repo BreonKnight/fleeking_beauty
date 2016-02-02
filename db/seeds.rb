@@ -34,15 +34,27 @@ Place.create(
   lon: '87.6847'
   )
 
+Place.create(
+  name: 'Baltimore',
+  lat: '39.2833',
+  lon: '76.6167'
+  )
+
 #Seeded voting on location
 20.times do 
 	new_up_vote = Upvote.create
 	User.first.upvotes.push new_up_vote
-	Place.first.upvotes.push new_up_vote
+	Place.last.upvotes.push new_up_vote
+end
+
+10.times do 
+	news_up_vote = Upvote.create
+	User.first.upvotes.push news_up_vote
+	Place.last.upvotes.push news_up_vote
 end
 
 5.times do 
 	new_down_vote = Downvote.create
-	User.last.downvotes.push new_down_vote
-	Place.last.downvotes.push new_down_vote
+	User.first.downvotes.push new_down_vote
+	Place.first.downvotes.push new_down_vote
 end
