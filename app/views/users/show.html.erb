@@ -19,8 +19,12 @@
 	Total Upvotes: <%= @user.upvotes.count  %> 
 	<br>
 	Total Downvotes: <%= @user.downvotes.count  %> 
-	<%= @upvotes %>
 	<br>
+	<%= @upvotes.count %>
+	<br>
+	<%= @upvotes.each do |place| %>
+		
+	<% end %>
 <!-- 	<%= @places.each do |place| %>
 		place
 	<% end %> -->

@@ -34,6 +34,12 @@ Place.create(
   lon: '87.6847'
   )
 
+Place.create(
+  name: 'Baltimore',
+  lat: '39.2833',
+  lon: '76.6167'
+  )
+
 #Seeded voting on location
 20.times do 
 	new_up_vote = Upvote.create
