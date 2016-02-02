@@ -14,9 +14,15 @@
 </div>
 <div class ="container prof">
 	<div class = "row">
+		<svg id="graph"></svg>
 	<br>
 	Total Upvotes: <%= @user.upvotes.count  %> 
 	<br>
 	Total Downvotes: <%= @user.downvotes.count  %> 
-	</div>
+	<%= @upvotes %>
+	<br>
+<!-- 	<%= @places.each do |place| %>
+		place
+	<% end %> -->
+	</div> 
 </div>

@@ -18,7 +18,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    render :show
+    @place = Place.find_by_id(params[:id])
+    @places = Place.all 
+
+    @upvotes = @user.upvotes(place_id: 3).count
+    @downvotes = @user.downvotes(@place).count
+
   end
 
   def edit
