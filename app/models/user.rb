@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :upvotes
   has_many :downvotes
 
+  def to_param
+    userName
+  end
+
 	def self.confirm(params)
 	  @user = User.find_by({email: params[:email]})
 	  @user.try(:authenticate, params[:password])

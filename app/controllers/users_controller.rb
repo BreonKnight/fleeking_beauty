@@ -17,11 +17,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_userName(params[:id])
     @place = Place.find_by_id(params[:id])
 
     @places = Place.all 
-
+    @upvote = Upvote.find_by_id(params[:id])
     @upvotes = @user.upvotes.where({place: @place})
     @downvotes = @user.downvotes.where({place: @place}).count
 
@@ -29,13 +29,13 @@ class UsersController < ApplicationController
 
   def edit
     user_id = params[:id]
-    @user = User.find_by_id(user_id)
+    @user = User.find_by_userName(user_id)
     render :edit
   end
 
   def update
     user_id = params[:id]
-    user = User.find_by_id(user_id)
+    user = User.find_by_userName(user_id)
     user_edit_params = params.require(:user).permit(:first_name, :last_name, :avatar)
     user.update_attributes(user_edit_params)
     redirect_to user_path(user)
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     user_id = params[:id]
-    user = User.find_by_id(user_id)
+    user = User.find_by_userName(user_id)
     user.destroy
     redirect_to users_path
   end

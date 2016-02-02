@@ -1,7 +1,7 @@
 <div class="container prof">
 	<div class="row">
 		<div class="col-md-12">
-			  <h2 class="text-center">Welcome, <%= @user.userName %> </h2>
+			  <h2 class="text-center"><%= @user.userName %> </h2>
 			  <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
 			  <h3><%=@user.first_name%> <%=@user.last_name%></h3>
 			  <% if current_user == @user %>
@@ -12,21 +12,22 @@
 		</div>
 	</div>
 </div>
-<div class ="container prof">
+<div class ="container ">
 	<div class = "row">
-		<svg id="graph"></svg>
 	<br>
 	Total Upvotes: <%= @user.upvotes.count  %> 
 	<br>
 	Total Downvotes: <%= @user.downvotes.count  %> 
 	<br>
-	<%= @upvotes.count %>
-	<br>
-	<%= @upvotes.each do |place| %>
-		
+<% @places.each do |place| %>
+
+		<div class="votebox">
+			<%= link_to(place) do %>
+			<h3> <%= place.name %> </h3>
+			<% end %>
+			<p><strong>Up votes</strong> <%= place.upvotes.where({user: @user}).count %></p>
+			<p><strong>Down votes</strong> <%= place.downvotes.where({user: @user}).count %></p>
+		</div>
 	<% end %>
-<!-- 	<%= @places.each do |place| %>
-		place
-	<% end %> -->
 	</div> 
 </div>
