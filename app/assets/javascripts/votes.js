@@ -9,11 +9,14 @@ $(document).ready(function() {
 			method: "POST",
 			url: "/vote",
 			// contentType: "application/json; charset=utf-8",
-			data: {upvote: true, place: p_id, photourl: "ok"},
 			dataType: 'json',
-			success: function (e) {
-				console.log(e);
-				
+			data: {upvote: true, place: p_id, photourl: p_url},
+			success: function (newImg) {
+				imgUrl = newImg.url;
+				imgPlace = newImg.place;
+				replacement_image ="<img src='"+imgUrl+"'"+" value='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
+				console.log("Replacing", replacement_image);
+				$('#current_img').replaceWith(replacement_image);
 			}
 		});
 	});
@@ -24,9 +27,14 @@ $(document).ready(function() {
 		$.ajax({
 			method: "POST",
 			url: "/vote",
+			dataType: 'json',
 			data: {downvote: true, place: p_id, photourl: p_url},
-			success: function (e) {
-				console.log(e);
+			success: function (newImg) {
+				imgUrl = newImg.url;
+				imgPlace = newImg.place;
+				replacement_image ="<img src='"+imgUrl+"'"+" value='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
+				console.log("Replacing", replacement_image);
+				$('#current_img').replaceWith(replacement_image);
 			}
 		});
 	});

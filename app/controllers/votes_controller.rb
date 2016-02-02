@@ -2,15 +2,30 @@ class VotesController < ApplicationController
   def new
     first = Place.first
     last = Place.last
-    #need to include something to test if the place id actually exists
+    #grabs a random place
     rand_place = rand(first.id..last.id)
     @place = Place.find_by_id(rand_place)
     @photo_array = searchFlickr(@place)
+    #grabs a random photo from photos array
     @n = rand(0..@photo_array.length)
+    photourl = @photo_array[@n]
+    search_count = 0
+    #checks to see if user has already seen photo, if so get another one, if it searches more than 19 times it gives up
+    while(original_photo(photourl) != true)
+      @n = rand(0..@photo_array.length)
+      photourl = @photo_array[@n]
+      search_count = search_count + 1
+      if(search_count > 19)
+        p "MAXED OUT"
+        break
+        # redirect_to vote_path
+      end
+    end
+    #will respond to ajax with json
     respond_to do | format |
       format.html
       format.json do 
-        render json: {url: @photo_array[@n], place: @place.id}
+        render json: {url: photourl, place: @place.id}
       end 
     end
   end
@@ -29,6 +44,15 @@ class VotesController < ApplicationController
     end
 
   end
+
+private
+#helper function that will return true if a photo is original to the user
+def original_photo(photourl)
+   if(current_user.upvotes.find_by(photourl: photourl) || current_user.downvotes.find_by(photourl: photourl)) 
+      return false
+    end
+    return true
+end
 
 end
 
