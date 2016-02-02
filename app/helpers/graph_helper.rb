@@ -9,4 +9,12 @@ module GraphHelper
 	  end
 	end
 
+  def calculate_upvote_percentage( upvotes, downvotes )
+    if (upvotes != 0)
+      (upvotes / (downvotes + upvotes) ) * 100
+    else
+      0
+    end
+  end
+
 end
