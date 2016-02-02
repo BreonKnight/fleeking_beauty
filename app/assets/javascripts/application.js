@@ -39,23 +39,23 @@ $( document ).ready(function () {
   //calculate drawing using ratio (upvotes : totalvotes)
   var vote_percentage = ($("p").data("vote-percentage"));
   var total_votes = [upvotes + downvotes];
-  var upvote_arr = [upvotes];
+  var upvote_arr = [vote_percentage];
 
 
   draw( upvote_arr, total_votes);
 
   //drawing logic
-  function draw( upvotes, totalvotes ) {
+  function draw( percentage ) {
 
     //define overall width and height of bar
     var width = 320,
       barHeight = 50;
 
-    //defines each element of upvotes relative to bar width
+    //defines each element of percentage relative to bar width
     var relativeFill = [];
 
-    upvotes.forEach( function( ele ) {
-      ele = (( ele * width ) / totalvotes );
+    percentage.forEach( function( ele ) {
+      ele = (( ele * width ) / 100 );
       relativeFill.push( ele );
     });
 
@@ -68,19 +68,19 @@ $( document ).ready(function () {
     var chart = d3.select("#graph")
       //attribute width
       .attr("width", width)
-      //number of bar charts, one per element in upvotes array
+      //number of bar charts, one per element in percentage array
       .attr("height", barHeight * relativeFill.length);
 
     //bar chart is defined
     var bar = chart.selectAll('g')
-      //data equal to upvotes
+      //data equal to percentage
       .data(relativeFill)
       .enter().append("g")
       .attr("transform", function (ele, ind) {
         return "translate(0," + ind * barHeight + ")";
       });
 
-    //define blue fill
+    //define background fill
     bar.append("rect")
       //width defined by original value
       .attr("width", width)
@@ -89,7 +89,7 @@ $( document ).ready(function () {
       //define height of bar
       .attr("height", barHeight);
 
-    //define red bar fill with upvotes
+    //define fill with percentage
     bar.append("rect")
       //width defined by upvote value
       .attr("width", relativeFill)
@@ -97,6 +97,13 @@ $( document ).ready(function () {
       .attr("height", barHeight)
       //define color of bar
       .style("fill", "#FF3300");
+
+    bar.append("text")
+      .attr("x", width - 50 )
+      .attr("y", barHeight / 2)
+      .attr("dy", ".35em")
+      .style("fill", "white")
+      .text(percentage + "%");
 
   }
 
