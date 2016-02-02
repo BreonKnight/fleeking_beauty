@@ -38,11 +38,13 @@ $( document ).ready(function () {
 
   //calculate drawing using ratio (upvotes : totalvotes)
   var vote_percentage = ($("p").data("vote-percentage"));
+  console.log(vote_percentage + "expected vote_percentage to be greater than 0");
+
   var total_votes = [upvotes + downvotes];
   var upvote_arr = [vote_percentage];
 
 
-  draw( upvote_arr, total_votes);
+  draw( upvote_arr );
 
   //drawing logic
   function draw( percentage ) {
@@ -96,7 +98,7 @@ $( document ).ready(function () {
       //define height of bar
       .attr("height", barHeight)
       //define color of bar
-      .style("fill", "#FF3300");
+      .style("fill", "#ff0080");
 
     bar.append("text")
       .attr("x", width - 50 )

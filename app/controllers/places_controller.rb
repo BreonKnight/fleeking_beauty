@@ -34,7 +34,7 @@ class PlacesController < ApplicationController
     @downvotes = @place.downvotes.count
 
     #takes the upvotes and divides it by the downvotes and creates a ratio
-    @vote_percentage = calculate_upvote_percentage(@upvotes,@downvotes)
+    @vote_percentage = calculate_upvote_percentage( @upvotes, @downvotes )
 
   end
 
