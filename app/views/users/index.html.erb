@@ -5,9 +5,9 @@
 		<% @users.each do |user| %>
 		<div class="col-md-4">
 			<%= link_to(user) do %>
-			<h1><%= user.userName %></h1>
+			<h1 class="text-center"><%= user.userName %></h1>
 			<% end %>
-			<%= image_tag(user.avatar, size: "320x426") %>
+			<%= image_tag(user.avatar, size: "320x426", class: "center-block") %>
 				</div>
 		<% end %>
 	</div>

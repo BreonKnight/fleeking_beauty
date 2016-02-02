@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//Importing fonts from google fonts
+@import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,400italic,700|Monoton);
 
 // COLORS //
 $violetred: #FA5096;
@@ -18,10 +20,56 @@ $irisBlue: #02B5D0;
 $turquoise: #3EF0FE;
 $icterine: #FFF35F;
 $juneBud: #C6EF4B;
+$montana: #393939;
 
+h1{
+	font-family: 'Monoton', cursive;
+	font-size: 60px;
+	color: $teaRose;
+	background-color: $caribianGreen;
+}
 
+p{
+  color: $white;
+}
 
+.jumbotron .h1, .jumbotron h1{
+  font-size: 180px;
+  color: $teaRose;
+}
 
+.navbar.navbar-inverse.navbar-fixed-top{
+	    background-color: rgba(0, 0, 0, 0.3);
+	    color: $teaRose;
+      border: 1px solid transparent;
+}
+
+label{
+	color: $white;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: $teaRose;
+	background-color:rgba(255, 255, 255, 0.3);
+	padding: 31px;
+}
+
+.navbar-inverse .navbar-brand{
+	color: $teaRose;
+	border-bottom: 4px solid rgba(255, 255, 255, 0);
+	background-color: rgba(255, 255, 255, 0.3);
+  padding: 29px 39px 50px 20px;
+}
+
+body{
+  background-color: $black;
+  padding-top: 85px;
+}
+
+.hero{
+  background-color: $caribianGreen;
+  height: 300px;
+}
 
 .half{
 	width: 50%;
