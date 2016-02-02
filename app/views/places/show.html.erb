@@ -1,7 +1,5 @@
 <div class="container">
-  Welcome, <%= @place.name %>
-
-	<p data-upvotes=<%= @upvotes %> data-downvotes=<%= @downvotes %> ><strong> hotness </strong> <%= @hotness %> </p>
+	<p data-upvotes=<%= @upvotes %> data-downvotes=<%= @downvotes %> data-vote-percentage=<%= @vote_percentage %> ><strong><%= @place.name.upcase %> is <%= @vote_percentage %>% beautiful.</strong> </p>
 
 	<svg id="graph"></svg>
 	<div class="row">
