@@ -32,7 +32,8 @@ class VotesController < ApplicationController
 
   def create
     if(params[:upvote]) 
-      Upvote.create(user_id: current_user.id, place_id: params[:place], photourl: params[:photourl])
+      p "user id class: #{current_user.id.class}  place id class: #{params[:place_id].class}  photourl class: #{params[:photourl].class}"
+      Upvote.create(user_id: current_user.id, place_id: params[:place_id], photourl: params[:photourl])
       p "you created a new upvote"
       redirect_to vote_path
     elsif(params[:downvote])
@@ -46,6 +47,17 @@ class VotesController < ApplicationController
   end
 
 private
+
+def inspect_vote_params
+  if(params[:photourl].class == "String")
+      if(/staticflickr/ =~ params[:photourl])
+        if(params[:place_id] == "String")
+          return true
+        end
+      end
+  end
+end
+
 #helper function that will return true if a photo is original to the user
 def original_photo(photourl)
    if(current_user.upvotes.find_by(photourl: photourl) || current_user.downvotes.find_by(photourl: photourl)) 
