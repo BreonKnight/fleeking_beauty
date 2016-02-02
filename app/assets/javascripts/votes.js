@@ -2,27 +2,24 @@ $(document).ready(function() {
 	console.log("Sanity check is working!");
 
 	$('#hotbut').on("click", function (e) {
-		p_id = $('#current_img').attr('value');
-								// .data('place-id')
+		p_id = $('#current_img').attr('data-place');
 		p_url = $('#current_img').attr('src');
 		$.ajax({
 			method: "POST",
 			url: "/vote",
 			// contentType: "application/json; charset=utf-8",
 			dataType: 'json',
-			data: {upvote: true, place: p_id, photourl: p_url},
+			data: {upvote: true, place_id: p_id, photourl: p_url},
 			success: function (newImg) {
 				imgUrl = newImg.url;
 				imgPlace = newImg.place;
-				replacement_image ="<img src='"+imgUrl+"'"+" value='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
-				console.log("Replacing", replacement_image);
-				$('#current_img').replaceWith(replacement_image);
+				$('#current_img').replaceWith(generatePhoto(imgUrl, imgPlace));
 			}
 		});
 	});
 
 	$('#notbut').on("click", function (e) {
-		p_id = $('#current_img').attr('value')
+		p_id = $('#current_img').attr('data-place')
 		p_url = $('#current_img').attr('src')
 		$.ajax({
 			method: "POST",
@@ -32,11 +29,21 @@ $(document).ready(function() {
 			success: function (newImg) {
 				imgUrl = newImg.url;
 				imgPlace = newImg.place;
-				replacement_image ="<img src='"+imgUrl+"'"+" value='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
-				console.log("Replacing", replacement_image);
-				$('#current_img').replaceWith(replacement_image);
+				$('#current_img').replaceWith(generatePhoto(imgUrl, imgPlace));
 			}
 		});
 	});
+
+	function generatePhoto(imgUrl, imgPlace) {
+		replacement_image ="<img src='"+imgUrl+"'"+" data-place='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
+		return replacement_image;
+	}
 	
 });
+
+	
+
+
+
+
+
