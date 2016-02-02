@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   get "/vote", to: "votes#new"
-  post "/vote/create", to: "votes#create"
+  post "/vote", to: "votes#create"
 
 end
