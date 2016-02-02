@@ -1,7 +1,8 @@
 <div class="container">
-	<p data-upvotes=<%= @upvotes %> data-downvotes=<%= @downvotes %> data-vote-percentage=<%= @vote_percentage %> ><strong><%= @place.name.upcase %> is <%= @vote_percentage %>% beautiful.</strong> </p>
-
-	<svg id="graph"></svg>
+  <div class="row">
+  	<p class="col-md-4" data-upvotes=<%= @upvotes %> data-downvotes=<%= @downvotes %> data-vote-percentage=<%= @vote_percentage %> ><strong><%= @place.name.upcase %> is <%= @vote_percentage %>% beautiful.</strong> </p>
+  	 <svg class="col-md-4" id="graph"></svg>
+  </div>
 	<div class="row">
 			<% @urls.each do |url| %>
 				<div class="col-md-4 photoTile">
