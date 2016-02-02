@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find_by_userName(params[:id])
     @place = Place.find_by_id(params[:id])
 
-    @places = Place.all 
+    @places = Place.last(10)
     @upvote = Upvote.find_by_id(params[:id])
     @upvotes = @user.upvotes.where({place: @place})
     @downvotes = @user.downvotes.where({place: @place}).count

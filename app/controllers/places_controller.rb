@@ -25,7 +25,7 @@ class PlacesController < ApplicationController
     @place = Place.find_by_id(params[:id])
     
     #accessing search helper to get photo for place
-    recent_votes = @place.upvotes.last(21)
+    recent_votes = @place.upvotes.last(24)
     @urls = recent_votes.collect {| vote | vote.photourl } 
   
     #gets upvotes for the place
