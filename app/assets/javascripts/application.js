@@ -113,10 +113,11 @@ $( document ).ready(function () {
       .style("fill", "#ff0080");
 
     bar.append("text")
+      .attr("class", "graph-text" )
       .attr("x", width - 50 )
       .attr("y", barHeight / 2)
       .attr("dy", ".35em")
-      .style("fill", "black")
+      .style("fill", "white")
       .style("font-weight", "bold")
       .text(percentage + " %");
 
