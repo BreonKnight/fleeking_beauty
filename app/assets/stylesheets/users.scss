@@ -1,10 +1,122 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Importing fonts from google fonts
+@import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,700,400italic|Monoton);
+
+// font-family: 'Faster One', cursive;
+// font-family: 'Gudea', sans-serif;
+// font-family: 'Monoton', cursive;
+
+// COLORS //
+$violetred: #FA5096;
+$teaRose: #FF8ABA;
+$freeSpeechMagenta: #D83FEF;
+$lavenderIndigo: #AF4DF8;
+$caribbeanGreen: #26F9B2;
+$picasso: #FFF29C;
+$tangerine: #FECF03;
+$tango: #F68121;
+$black: #000000;
+$white: #FFFFFF;
+$irisBlue: #02B5D0;
+$turquoise: #3EF0FE;
+$icterine: #FFF35F;
+$juneBud: #C6EF4B;
+$montana: #393939;
+
+h1{
+	font-family: 'Monoton', cursive;
+	font-size: 60px;
+	color: $teaRose;
+	background-color: $caribbeanGreen;
+  padding-bottom: 200px;
+}
+
+h2{
+  color: $caribbeanGreen;
+}
+
+p{
+	color: $white;
+}
+
+.jumbotron .h1, .jumbotron h1{
+	font-size: 180px;
+	color: $teaRose;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top{
+	background-color: rgba(0, 0, 0, 0.3);
+	color: $teaRose;
+	border: 1px solid transparent;
+}
+
+label{
+	color: $white;
+}
+
+a {
+    color: $teaRose;
+    text-decoration: none;
+}
+
+a:hover 
+{
+	color: $white; 
+	text-decoration: none; 
+	cursor: pointer;  
+}
+
+.h3isNeon{
+	color:$teaRose;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: $teaRose;
+	background-color:rgba(255, 255, 255, 0.3);
+	padding: 31px;
+}
+
+.navbar-inverse .navbar-brand{
+	color: $teaRose;
+	border-bottom: 3px solid rgba(255, 255, 255, 0);
+	background-color: $caribbeanGreen;
+  padding: 29px 39px 50px 20px;
+}
+
+body{
+	background-color: $black;
+	padding-top: 85px;
+}
+
+.user-index{
+	font-family: 'Gudea', sans-serif; 
+	font-size: 40px;
+}
+
+.hero{
+	background-color: $caribbeanGreen;
+	height: 300px;
+}
+
 .half{
 	width: 50%;
 }
 
-prof{
+.prof{
 	padding-top: 70px;
+}
+h1.col-md-4.vote{
+	font-size: 40px;
+}
+.local-card{
+	background-color: $caribbeanGreen;
+}
+
+.votebox{
+	border: 1px solid black;
+	background-color: black;
+	color:white;
 }
