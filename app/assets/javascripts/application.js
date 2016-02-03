@@ -32,23 +32,23 @@ $( document ).ready(function () {
   //   }
   // });
   
-  var votesGraphs = $('.vote');
+  var $votesGraphs = $('.vote');
 
-  votesGraphs.each( function ( index )  {
+  $votesGraphs.each( function ( index )  {
     // get id for the place
-    var id = $(this).attr("id");
+    var $id = $(this).attr("id");
     // save these data attribute values for future graphs
-    var upvotes = $('#' + id ).data("upvotes");
+    var $upvotes = $('#' + $id ).data("upvotes");
     // var upvotes = ($("p").data("upvotes"));
-    var downvotes = $('#' + id ).data("downvotes");
+    var $downvotes = $('#' + $id ).data("downvotes");
     // calculate drawing using ratio (upvotes : totalvotes)
-    var vote_percentage = $('#' + id ).data("vote-percentage");
+    var $vote_percentage = $('#' + $id ).data("vote-percentage");
 
     // pass vote_percentage into an array
-    var upvote_arr = [vote_percentage];
+    var upvote_arr = [$vote_percentage];
 
     // renders graph for each place
-    draw( upvote_arr, id );
+    draw( upvote_arr, $id );
 
   });
 
