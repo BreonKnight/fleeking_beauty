@@ -1,4 +1,5 @@
-
+require 'http'
+require 'json'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -46,10 +47,28 @@ Place.create(
   lon: '76.6167'
   )
 
+def whitespace_eliminator(name)
+  if(name.include? " ")
+    search_name = name.strip
+    search_name = search_name.gsub /\s/, '+'
+    return search_name
+  else
+    return name
+  end
+end
+
+def geocode(name, search_name)
+  grab_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{search_name}&key=AIzaSyDIL0AuhwH7Lx1duRFYnVUpQsMLPKplBQ8"))
+  lat = grab_this['results'][0]['geometry']['location']['lat'].to_s
+  lon = grab_this['results'][0]['geometry']['location']['lng'].to_s
+  new_place = {name: name, lat: lat, lon: lon}
+  return new_place
+end
+
 more_places.each do | place |
-  Place.create(
-    name: place
-  )
+  search_string = whitespace_eliminator(place)
+  geocoded_place = geocode(place, search_string)
+  Place.create(geocoded_place)
 end
 
 #Seeded voting on location

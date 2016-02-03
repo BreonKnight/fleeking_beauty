@@ -11,4 +11,10 @@ require 'json'
     return new_place
   end
 
+  def compare_coordinates(new_place)
+    # stored_place
+    distance = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{new_place[:lat]},#{new_place[:lon]}|&destinations=41.43206,-81.38992&units=imperial&key=AIzaSyAgvdKz8uVUUjakmnDwiQGG1KZApTXSIOI"))
+    #{new_place[:lat]},#{new_place[:lon]}
+    print "===> expecting a blob of distance info #{distance}"
+  end
 end
