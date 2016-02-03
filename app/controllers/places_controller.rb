@@ -1,11 +1,17 @@
 class PlacesController < ApplicationController
+  require 'http'
+  require 'json'
 
   def index
     @places = Place.all
   end
 
   def new
-    @place = Place.new
+    show_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDIL0AuhwH7Lx1duRFYnVUpQsMLPKplBQ8"))
+    # puts "eleme==>> #{show_this[:results]}"
+    # show_this.each do |key, value|
+    #   puts "=====>> #{key}:#{value}"
+    # end
   end
 
   def create

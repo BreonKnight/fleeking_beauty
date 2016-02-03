@@ -1,7 +1,63 @@
 // Place all the styles related to the votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#buts{
-	margin-top: 10px;
-	padding-left: 160px;
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#buts {
+	padding-left:120px;
+	padding-top: 20px;
+}
+#hotbut{
+  background: #44eba0;
+  background-image: -webkit-linear-gradient(top, #44eba0, #97afbd);
+  background-image: -moz-linear-gradient(top, #44eba0, #97afbd);
+  background-image: -ms-linear-gradient(top, #44eba0, #97afbd);
+  background-image: -o-linear-gradient(top, #44eba0, #97afbd);
+  background-image: linear-gradient(to bottom, #44eba0, #97afbd);
+  font-family: Arial;
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  color: #f095f0;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#hotbut:hover {
+  background: #fc3c56;
+  background-image: -webkit-linear-gradient(top, #fc3c56, #3498db);
+  background-image: -moz-linear-gradient(top, #fc3c56, #3498db);
+  background-image: -ms-linear-gradient(top, #fc3c56, #3498db);
+  background-image: -o-linear-gradient(top, #fc3c56, #3498db);
+  background-image: linear-gradient(to bottom, #fc3c56, #3498db);
+  text-decoration: none;
+}
+
+#notbut {
+  background: #ff8fa2;
+  background-image: -webkit-linear-gradient(top, #ff8fa2, #e8dfe6);
+  background-image: -moz-linear-gradient(top, #ff8fa2, #e8dfe6);
+  background-image: -ms-linear-gradient(top, #ff8fa2, #e8dfe6);
+  background-image: -o-linear-gradient(top, #ff8fa2, #e8dfe6);
+  background-image: linear-gradient(to bottom, #ff8fa2, #e8dfe6);
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #26F9B2;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#notbut:hover {
+  background: #b3f2dc;
+  background-image: -webkit-linear-gradient(top, #b3f2dc, #eda1e4);
+  background-image: -moz-linear-gradient(top, #b3f2dc, #eda1e4);
+  background-image: -ms-linear-gradient(top, #b3f2dc, #eda1e4);
+  background-image: -o-linear-gradient(top, #b3f2dc, #eda1e4);
+  background-image: linear-gradient(to bottom, #b3f2dc, #eda1e4);
+  text-decoration: none;
 }
