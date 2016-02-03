@@ -9,19 +9,24 @@ class PlacesController < ApplicationController
   end
 
   def create
-    p "===> #{params[:name]}"
-    place = Place.find_by(name: params[:name])
-    p "===> Expecting to find matching place #{place}"
-    p "===> Expecting to return nil for a non-matching place #{place}"
-    if(place)
-      p "This place already exists"
-    end
-    #grab params name and geocode it
-    new_place = get_coordinates(params[:name])
-    p "Expecting a new geocoded place object #{new_place}"
-
-    
-   
+    redirect_to place_path
+    # p "===> #{params[:name]}"
+    # place = Place.find_by(name: params[:name])
+    # p "===> Expecting to find matching place #{place}"
+    # p "===> Expecting to return nil for a non-matching place #{place}"
+    # if(place)
+    #   p "This place already exists"
+    # end
+    # #grab params name and geocode it
+    # new_place = get_coordinates(params[:name])
+    # p "Expecting a new geocoded place object #{new_place}"
+    # places = Place.all
+    # coordinates = places.collect { | place | place.lat+","+place.lon}
+    # p "Expecting a collection of lat/long #{coordinates}"
+    # #compare 
+    # # coordinates.each do | coordinate_pair |
+    # compare_coordinates(new_place)
+    # # end
   end
 
   def show
