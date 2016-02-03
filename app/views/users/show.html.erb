@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h1 class="text-center"><%= @user.userName %> </h1>
-    <div class="col-md-6">
+    <div class="col-md-6 vote" data-upvotes=<%= upvote_count(@user) %> data-downvotes=<%= downvote_count(@user) %> data-vote-percentage=<%= calculate_upvote_percentage( upvote_count(@user), downvote_count(@user)) %>  id=<%= @user.id %>>
         <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
         <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
 
@@ -14,11 +14,13 @@
         <br>
         <p> <strong> Total Downvotes: </strong> <%= downvote_count(@user)  %> </p>
         <br>
+        <svg class="graph" id=<%= "graph#{@user.id}" %> ></svg>
     </div>
     <div class="col-md-6">
+    <h2>Beauty is in the eye of the beholder...</h2>
   <% @places.each do |place| %>
 
-    <div class="votebox place" data-upvotes=<%= place.upvotes.where({user: @user}).count %> data-downvotes=<%= place.downvotes.where({user: @user}).count %> data-vote-percentage=<%= calculate_upvote_percentage( place.upvotes.where({user: @user}).count, place.downvotes.where({user: @user}).count ) %>  id=<%= place.id %> >
+    <div class="votebox vote" data-upvotes=<%= place.upvotes.where({user: @user}).count %> data-downvotes=<%= place.downvotes.where({user: @user}).count %> data-vote-percentage=<%= calculate_upvote_percentage( place.upvotes.where({user: @user}).count, place.downvotes.where({user: @user}).count ) %>  id=<%= place.id %> >
 
       <%= link_to(place) do %>
       <h3> <%= place.name %> </h3>
