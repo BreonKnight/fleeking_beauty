@@ -35,7 +35,7 @@ $(document).ready(function() {
 	});
 
 	function generatePhoto(imgUrl, imgPlace) {
-		replacement_image ="<img src='"+imgUrl+"'"+" data-place='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"350"+"'"+" width='"+"350"+"'"+"/>";
+		replacement_image ="<img src='"+imgUrl+"'"+" data-place='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"400"+"'"+" width='"+"400"+"'"+"/>";
 		return replacement_image;
 	}
 	
