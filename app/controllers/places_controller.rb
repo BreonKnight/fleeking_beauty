@@ -19,6 +19,9 @@ class PlacesController < ApplicationController
     #grab params name and geocode it
     new_place = get_coordinates(params[:name])
     p "Expecting a new geocoded place object #{new_place}"
+    places = Place.all
+    coordinates = places.collect { | place | place.lat+","+place.lon}
+    p "Expecting a collection of lat/long #{coordinates}"
 
     
    
