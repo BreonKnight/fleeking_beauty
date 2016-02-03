@@ -39,7 +39,7 @@ module SearchHelper
       @id = photo['id']
       @secret = photo['secret']
 
-      url = "https://farm#{@farm_id}.staticflickr.com/#{@server_id}/#{@id}_#{@secret}_b.jpg"
+      url = "https://farm#{@farm_id}.staticflickr.com/#{@server_id}/#{@id}_#{@secret}.jpg"
       
       @urls << url
     end
