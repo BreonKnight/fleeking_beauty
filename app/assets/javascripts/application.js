@@ -116,8 +116,9 @@ $( document ).ready(function () {
       .attr("x", width - 50 )
       .attr("y", barHeight / 2)
       .attr("dy", ".35em")
-      .style("fill", "white")
-      .text(percentage + "%");
+      .style("fill", "black")
+      .style("font-weight", "bold")
+      .text(percentage + " %");
 
   }
 
