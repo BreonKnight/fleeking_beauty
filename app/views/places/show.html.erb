@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4">
 
-    	<p class="col-md-4 place" id=<%= @place.id %> data-upvotes=<%= @place.upvotes.count %> data-downvotes=<%= @place.downvotes.count %> data-vote-percentage=<%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %> > <strong><%= @place.name.upcase %> is <%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %>% beautiful.</strong> </p>
+    	<h1 class="col-md-4 vote" id=<%= @place.id %> data-upvotes=<%= @place.upvotes.count %> data-downvotes=<%= @place.downvotes.count %> data-vote-percentage=<%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %> ><%= @place.name.upcase %> is <%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %>% beautiful</h1>
     	<svg class="graph" id=<%= "graph#{@place.id}" %> ></svg>
 
     </div>

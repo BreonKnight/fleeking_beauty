@@ -32,9 +32,9 @@ $( document ).ready(function () {
   //   }
   // });
   
-  var places = $('.place');
+  var votesGraphs = $('.vote');
 
-  places.each( function ( index )  {
+  votesGraphs.each( function ( index )  {
     // get id for the place
     var id = $(this).attr("id");
     // save these data attribute values for future graphs

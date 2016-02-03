@@ -52,6 +52,18 @@ label{
 	color: $white;
 }
 
+a {
+    color: $teaRose;
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color: $white; 
+     text-decoration: none; 
+     cursor: pointer;  
+}
+
 .h3isNeon{
   color:$teaRose;
 }
