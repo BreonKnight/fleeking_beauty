@@ -8,6 +8,7 @@ class PlacesController < ApplicationController
 
   def new
     show_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDIL0AuhwH7Lx1duRFYnVUpQsMLPKplBQ8"))
+    puts "eleme==>> #{show_this['results'][0]['geometry']['location']}"
     # puts "eleme==>> #{show_this[:results]}"
     # show_this.each do |key, value|
     #   puts "=====>> #{key}:#{value}"
