@@ -7,6 +7,10 @@
   # { lat: '41.8369' },
   # { lon: '87.6847' }
   # ])
+User.destroy_all
+Place.destroy_all
+Upvote.destroy_all
+Downvote.destroy_all 
 
 #Fake User Data
 User.create(
@@ -27,6 +31,7 @@ User.create(
 
 
 #Fake Place data
+more_places = ["San Francisco", "New York", "Tokyo", "Hong Kong", "Los Angeles", "Berlin", "Cairo", "Santiago", "Perth", "Seoul", "Joshua Tree National Park", "Vladivostok", "Bahia", "Davenport", "Worcester", "Detroit", "Singapore", "Lagos", "Krabi", "Bucharest"]
 
 Place.create(
   name: 'Chicago',
@@ -39,6 +44,12 @@ Place.create(
   lat: '39.2833',
   lon: '76.6167'
   )
+
+more_places.each do | place |
+  Place.create(
+    name: place
+  )
+end
 
 #Seeded voting on location
 20.times do 
