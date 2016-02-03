@@ -1,11 +1,17 @@
 <div class="container">
 	<h1 class="text-center">Places Names</h1>
-	
-	<div>
+  <div class="row">
 		<% @places.each do |place| %>
 			<%= link_to(place) do %>
-			<h1><%= place.name %></h1>
+      <div class="col-md-4">
+
+        <h1 class="place" data-upvotes=<%= place.upvotes.count %> data-downvotes=<%= place.downvotes.count %> data-vote-percentage=<%= calculate_upvote_percentage( place.upvotes.count, place.downvotes.count ) %>  id=<%= place.id %> > <%= place.name.upcase %>
+        </h1>
+
+        <svg class="graph" id=<%= "graph#{place.id}" %> ></svg>
+
+      </div>
 			<% end %>
 		<% end %>
-	</div>
+  </div>
 </div>
