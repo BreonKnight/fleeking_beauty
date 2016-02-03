@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "/vote", to: "votes#new"
   post "/vote", to: "votes#create"
 
-
+  # get "/places", to: "places#index", as: "place"
+  # get "places/:id", to: "places#show"
+  resources :places
   get "/places/new", to: "places#new"
   post "/places", to: "places#create"
 
