@@ -1,9 +1,9 @@
-<div class="container prof">
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center"><%= @user.userName %> </h1>
+    <h1 class="text-center"><%= @user.userName %> </h1>
+    <div class="col-md-6">
         <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
-        <h3><%=@user.first_name%> <%=@user.last_name%></h3>
+        <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
 
         <% if user_ud(@user) %>
         <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
@@ -15,10 +15,7 @@
         <p> <strong> Total Downvotes: </strong> <%= downvoteCount(@user)  %> </p>
         <br>
     </div>
-  </div>
-</div>
-<div class ="container ">
-  <div class ="row">
+    <div class="col-md-6">
   <% @places.each do |place| %>
 
     <div class="votebox">
@@ -29,5 +26,6 @@
       <p><strong>Down votes</strong> <%= place.downvotes.where({user: @user}).count %></p>
     </div>
   <% end %>
+</div>
   </div> 
 </div>
