@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get "/vote", to: "votes#new"
   post "/vote", to: "votes#create"
 
+
   get "/places/new", to: "places#new"
   post "/places", to: "places#create"
+
+  get "/about", to: "static_pages#about"
 
 end

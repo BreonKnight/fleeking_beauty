@@ -6,7 +6,7 @@
 @import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,700,400italic|Monoton);
 
 // font-family: 'Faster One', cursive;
-// font-family: 'Gudea', sans-serif; 
+// font-family: 'Gudea', sans-serif;
 // font-family: 'Monoton', cursive;
 
 // COLORS //
@@ -31,6 +31,7 @@ h1{
 	font-size: 60px;
 	color: $teaRose;
 	background-color: $caribbeanGreen;
+  padding-bottom: 200px;
 }
 
 h2{
@@ -38,18 +39,18 @@ h2{
 }
 
 p{
-  color: $white;
+	color: $white;
 }
 
 .jumbotron .h1, .jumbotron h1{
-  font-size: 180px;
-  color: $teaRose;
+	font-size: 180px;
+	color: $teaRose;
 }
 
 .navbar.navbar-inverse.navbar-fixed-top{
-	    background-color: rgba(0, 0, 0, 0.3);
-	    color: $teaRose;
-      border: 1px solid transparent;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: $teaRose;
+	border: 1px solid transparent;
 }
 
 label{
@@ -63,13 +64,13 @@ a {
 
 a:hover 
 {
-     color: $white; 
-     text-decoration: none; 
-     cursor: pointer;  
+	color: $white; 
+	text-decoration: none; 
+	cursor: pointer;  
 }
 
 .h3isNeon{
-  color:$teaRose;
+	color:$teaRose;
 }
 
 .navbar-inverse .navbar-nav>li>a{
@@ -80,24 +81,24 @@ a:hover
 
 .navbar-inverse .navbar-brand{
 	color: $teaRose;
-	border-bottom: 4px solid rgba(255, 255, 255, 0);
-	background-color: rgba(255, 255, 255, 0.3);
+	border-bottom: 3px solid rgba(255, 255, 255, 0);
+	background-color: $caribbeanGreen;
   padding: 29px 39px 50px 20px;
 }
 
 body{
-  background-color: $black;
-  padding-top: 85px;
+	background-color: $black;
+	padding-top: 85px;
 }
 
 .user-index{
-  font-family: 'Gudea', sans-serif; 
-  font-size: 40px;
+	font-family: 'Gudea', sans-serif; 
+	font-size: 40px;
 }
 
 .hero{
-  background-color: $caribbeanGreen;
-  height: 300px;
+	background-color: $caribbeanGreen;
+	height: 300px;
 }
 
 .half{
@@ -106,6 +107,12 @@ body{
 
 .prof{
 	padding-top: 70px;
+}
+h1.col-md-4.vote{
+	font-size: 40px;
+}
+.local-card{
+	background-color: $caribbeanGreen;
 }
 
 .votebox{
