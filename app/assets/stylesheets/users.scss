@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //Importing fonts from google fonts
-@import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,400italic,700|Monoton);
+@import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,700,400italic|Monoton);
+
+// font-family: 'Faster One', cursive;
+// font-family: 'Gudea', sans-serif; 
+// font-family: 'Monoton', cursive;
 
 // COLORS //
 $violetred: #FA5096;
@@ -68,6 +72,11 @@ label{
 body{
   background-color: $black;
   padding-top: 85px;
+}
+
+.userIndex{
+  font-family: 'Gudea', sans-serif; 
+  font-size: 40px;
 }
 
 .hero{
