@@ -6,7 +6,7 @@
 @import url(https://fonts.googleapis.com/css?family=Faster+One|Gudea:400,700,400italic|Monoton);
 
 // font-family: 'Faster One', cursive;
-// font-family: 'Gudea', sans-serif; 
+// font-family: 'Gudea', sans-serif;
 // font-family: 'Monoton', cursive;
 
 // COLORS //
@@ -31,6 +31,7 @@ h1{
 	font-size: 60px;
 	color: $teaRose;
 	background-color: $caribbeanGreen;
+  padding-bottom: 200px;
 }
 
 h2{
@@ -80,8 +81,8 @@ a:hover
 
 .navbar-inverse .navbar-brand{
 	color: $teaRose;
-	border-bottom: 4px solid rgba(255, 255, 255, 0);
-	background-color: rgba(255, 255, 255, 0.3);
+	border-bottom: 3px solid rgba(255, 255, 255, 0);
+	background-color: $caribbeanGreen;
   padding: 29px 39px 50px 20px;
 }
 
