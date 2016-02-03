@@ -6,12 +6,12 @@
         <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
 
         <% if is_user?(@user) %>
-        <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
-        <%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
+        <div style="display:inline-block"><%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %></div>
+        <div style="display:inline-block"><%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %></div>
         <% end %>
         <br>
-        <p><strong> Total Upvotes: </strong> <%= upvote_count(@user) %> </p> 
         <br>
+        <p><strong> Total Upvotes: </strong> <%= upvote_count(@user) %> </p> 
         <p> <strong> Total Downvotes: </strong> <%= downvote_count(@user)  %> </p>
         <br>
         <h2><h2><%= @user.userName %>'s Beauty Bar</h2></h2>
