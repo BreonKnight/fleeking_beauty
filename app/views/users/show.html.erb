@@ -17,12 +17,18 @@
     </div>
     <div class="col-md-6">
   <% @places.each do |place| %>
-    <div class="votebox">
+
+    <div class="votebox place" data-upvotes=<%= place.upvotes.where({user: @user}).count %> data-downvotes=<%= place.downvotes.where({user: @user}).count %> data-vote-percentage=<%= calculate_upvote_percentage( place.upvotes.where({user: @user}).count, place.downvotes.where({user: @user}).count ) %>  id=<%= place.id %> >
+
       <%= link_to(place) do %>
       <h3> <%= place.name %> </h3>
       <% end %>
       <p><strong>Up votes</strong> <%= place.upvotes.where({user: @user}).count %></p>
+
       <p><strong>Down votes</strong> <%= place.downvotes.where({user: @user}).count %></p>
+      
+      <svg class="graph" id=<%= "graph#{place.id}" %> ></svg>
+
     </div>
   <% end %>
 </div>
