@@ -7,7 +7,7 @@
 
         <% if is_user?(@user) %>
         <div style="display:inline-block"><%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %></div>
-        <div style="display:inline-block"><%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %></div>
+        <div style="display:inline-block"><%= button_to "Delete", @user, :data => {:confirm => 'Are you sure you want to delete your account?'}, method: :delete, class: "btn btn-danger" %></div>
         <% end %>
         <br>
         <br>
