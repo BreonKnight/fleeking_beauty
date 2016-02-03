@@ -1,3 +1,8 @@
-<h1>Places#new</h1>
-<p>Find me in app/views/places/new.html.erb</p>
-<%= @look_up %>
+<h2>Don't see a place? Add one.</h2>
+<p></p>
+<%= form_for :place, url: {action: "create"} do %>
+	<%= label_tag("New Place") %>
+	<%= text_field_tag(:name) %>
+	<br>
+	<%= submit_tag("Create") %>
+<% end %>
