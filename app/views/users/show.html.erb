@@ -5,19 +5,18 @@
         <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
         <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
 
-        <% if user_ud(@user) %>
+        <% if is_user?(@user) %>
         <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
         <%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
         <% end %>
         <br>
-        <p><strong> Total Upvotes: </strong> <%= upvoteCount(@user) %> </p> 
+        <p><strong> Total Upvotes: </strong> <%= upvote_count(@user) %> </p> 
         <br>
-        <p> <strong> Total Downvotes: </strong> <%= downvoteCount(@user)  %> </p>
+        <p> <strong> Total Downvotes: </strong> <%= downvote_count(@user)  %> </p>
         <br>
     </div>
     <div class="col-md-6">
   <% @places.each do |place| %>
-
     <div class="votebox">
       <%= link_to(place) do %>
       <h3> <%= place.name %> </h3>

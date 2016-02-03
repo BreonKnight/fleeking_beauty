@@ -1,14 +1,14 @@
 module UsersHelper
 
-  def user_ud(user)
+  def is_user?(user)
     user == current_user
   end
 
-  def upvoteCount(user)
+  def upvote_count(user)
     user.upvotes.count
   end
 
-  def downvoteCount(user)
+  def downvote_count(user)
     user.downvotes.count
   end
 
