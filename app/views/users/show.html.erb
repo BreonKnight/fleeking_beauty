@@ -14,7 +14,7 @@
         <p><strong> Total Upvotes: </strong> <%= upvote_count(@user) %> </p> 
         <p> <strong> Total Downvotes: </strong> <%= downvote_count(@user)  %> </p>
         <br>
-        <h2><h2><%= @user.userName %>'s Beauty Bar</h2></h2>
+        <h2><%= @user.userName %>'s judgement is...</h2>
         <svg class="graph" id=<%= "graph#{@user.id}" %> ></svg>
     </div>
     <div class="col-md-6">
