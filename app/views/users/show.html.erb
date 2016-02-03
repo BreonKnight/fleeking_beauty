@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1 class="text-center"><%= @user.userName %></h1>
+    <h1 class="text-center about"><%= @user.userName %></h1>
     <div class="col-md-6 vote" data-upvotes=<%= upvote_count(@user) %> data-downvotes=<%= downvote_count(@user) %> data-vote-percentage=<%= calculate_upvote_percentage( upvote_count(@user), downvote_count(@user)) %>  id=<%= @user.id %>>
         <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
         <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
