@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+
   def index
     @places = Place.all
   end
@@ -20,7 +21,10 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by_id(params[:id])
-    @urls = search(@place)
+    
+    #accesses photourls of most recent votes
+    recent_votes = @place.upvotes.last(24)
+    @urls = recent_votes.collect {| vote | vote.photourl }
   end
 
   # def edit

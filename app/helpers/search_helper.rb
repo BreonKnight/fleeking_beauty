@@ -3,7 +3,8 @@ require 'json'
 require 'net/http'
  
 module SearchHelper
-  def jsonToURL(data)
+    
+  def getFlickrURLs(data)
     #format received:
     # {"photos"=>
     #   {
@@ -47,15 +48,27 @@ module SearchHelper
 
   end
 
-  def search(place) 
-    @api_key="27a19bcef1138ae6bb69dc5aba22c94e"
-    @lat = place.lat.to_f
-    @lon = place.lon.to_f
-    flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=#{@api_key}&lat=#{@lat}&lon=#{@lon}&format=json&nojsoncallback=1&page=1&per_page=5"
+  def searchFlickr(place) 
+    @api_key=ENV['FLICKR_KEY']
+    flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search" +
+    "&format=json&nojsoncallback=1" +
+    "&api_key=#{@api_key}" +
+    # limits results to photos only
+    "&content_type=1" +
+    # using tags to limit search to place name and outdoor
+    "&tags=#{place.name}" +
+    # boolean AND for tags
+    "&tag_mode=all" +
+    # only request publicly available photos
+    "&privacy_filter=1"+
+    # Limits results to 1 page
+    "&page=1" +
+    # Limits results per-page to 20 photos
+    "&per_page=20"
     response = Net::HTTP.get_response(URI.parse(flickrSearch))
     data = response.body
     data = JSON.parse(data)
-    jsonToURL(data)
+    getFlickrURLs(data)
   end
 
 end

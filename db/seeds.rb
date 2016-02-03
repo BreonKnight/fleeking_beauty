@@ -8,8 +8,53 @@
   # { lon: '87.6847' }
   # ])
 
-Place.create([
-  { name: 'Chicago' },
-  { lat: '41.8369' },
-  { lon: '87.6847' }
-  ])
+#Fake User Data
+User.create(
+	email: 'youMad@gmail.com',
+	first_name: "Breon",
+	last_name: "Knight",
+	userName: "ballin",
+	password_digest: "haha"
+	)
+
+User.create(
+	email: 'Is@gmail.com',
+	first_name: "Is",
+	last_name: "A",
+	userName: "italian",
+	password_digest: "haha"
+	)
+
+
+#Fake Place data
+
+Place.create(
+  name: 'Chicago',
+  lat: '41.8369',
+  lon: '87.6847'
+  )
+
+Place.create(
+  name: 'Baltimore',
+  lat: '39.2833',
+  lon: '76.6167'
+  )
+
+#Seeded voting on location
+20.times do 
+	new_up_vote = Upvote.create
+	User.first.upvotes.push new_up_vote
+	Place.last.upvotes.push new_up_vote
+end
+
+10.times do 
+	news_up_vote = Upvote.create
+	User.first.upvotes.push news_up_vote
+	Place.last.upvotes.push news_up_vote
+end
+
+5.times do 
+	new_down_vote = Downvote.create
+	User.first.downvotes.push new_down_vote
+	Place.first.downvotes.push new_down_vote
+end

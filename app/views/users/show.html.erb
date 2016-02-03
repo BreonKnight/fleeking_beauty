@@ -1,20 +1,39 @@
-<div class="container prof">
-	<div class="row">
-		<div class="col-md-12">
-			  <h2 class="text-center">Welcome, <%= @user.userName %> </h2>
-			  <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
-			  <h3><%=@user.first_name%> <%=@user.last_name%></h3>
-			  <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center"><%= @user.userName %></h1>
+    <div class="col-md-6 vote" data-upvotes=<%= upvote_count(@user) %> data-downvotes=<%= downvote_count(@user) %> data-vote-percentage=<%= calculate_upvote_percentage( upvote_count(@user), downvote_count(@user)) %>  id=<%= @user.id %>>
+        <%= image_tag @user.avatar.url, size: "320x426", class: "img-responsive" %>
+        <h3 class="h3isNeon"><%=@user.first_name%> <%=@user.last_name%></h3>
 
-				<%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
-		</div>
-	</div>
+        <% if is_user?(@user) %>
+        <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-default" %>
+        <%= button_to "Delete", @user, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+        <br>
+        <p><strong> Total Upvotes: </strong> <%= upvote_count(@user) %> </p> 
+        <br>
+        <p> <strong> Total Downvotes: </strong> <%= downvote_count(@user)  %> </p>
+        <br>
+        <h2><h2><%= @user.userName %>'s Beauty Bar</h2></h2>
+        <svg class="graph" id=<%= "graph#{@user.id}" %> ></svg>
+    </div>
+    <div class="col-md-6">
+    <h2>in the eye of the beholder...</h2>
+  <% @places.each do |place| %>
+
+    <div class="votebox vote" data-upvotes=<%= place.upvotes.where({user: @user}).count %> data-downvotes=<%= place.downvotes.where({user: @user}).count %> data-vote-percentage=<%= calculate_upvote_percentage( place.upvotes.where({user: @user}).count, place.downvotes.where({user: @user}).count ) %>  id=<%= place.id %> >
+
+      <%= link_to(place) do %>
+      <h3> <%= place.name %> </h3>
+      <% end %>
+      <p><strong>Up votes</strong> <%= place.upvotes.where({user: @user}).count %></p>
+
+      <p><strong>Down votes</strong> <%= place.downvotes.where({user: @user}).count %></p>
+      
+      <svg class="graph" id=<%= "graph#{place.id}" %> ></svg>
+
+    </div>
+  <% end %>
 </div>
-<div class ="container prof">
-	<div class = "row">
-	<br>
-	Total Upvotes: <%= @user.upvotes.count  %> 
-	<br>
-	Total Downvotes: <%= @user.upvotes.count  %> 
-	</div>
+  </div> 
 </div>
