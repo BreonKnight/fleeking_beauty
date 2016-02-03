@@ -9,14 +9,19 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.new(place_params)
-    if @place.save
-      flash[:notice] = "Successfully created #{@place.name}."
-      redirect_to place_path(@place)
-    else
-      flash[:error] = @place.errors.full_messages.join(", ")
-      redirect_to new_place_path
+    p "===> #{params[:name]}"
+    place = Place.find_by(name: params[:name])
+    p "===> Expecting to find matching place #{place}"
+    p "===> Expecting to return nil for a non-matching place #{place}"
+    if(place)
+      p "This place already exists"
     end
+    #grab params name and geocode it
+    new_place = get_coordinates(params[:name])
+    p "Expecting a new geocoded place object #{new_place}"
+
+    
+   
   end
 
   def show

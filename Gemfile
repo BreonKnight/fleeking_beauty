@@ -32,6 +32,8 @@ gem 'responders', '~> 2.0'
 
 gem 'd3-rails', '~> 3.5', '>= 3.5.11'
 
+gem 'http'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
