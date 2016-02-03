@@ -31,23 +31,33 @@ $( document ).ready(function () {
   //     error();
   //   }
   // });
+  
+  var votesGraphs = $('.vote');
 
-  //save these data attribute values for future graphs
-  var upvotes = ($("p").data("upvotes"));
-  var downvotes = ($("p").data("downvotes"));
+  votesGraphs.each( function ( index )  {
+    // get id for the place
+    var id = $(this).attr("id");
+    // save these data attribute values for future graphs
+    var upvotes = $('#' + id ).data("upvotes");
+    // var upvotes = ($("p").data("upvotes"));
+    var downvotes = $('#' + id ).data("downvotes");
+    // calculate drawing using ratio (upvotes : totalvotes)
+    var vote_percentage = $('#' + id ).data("vote-percentage");
 
-  //calculate drawing using ratio (upvotes : totalvotes)
-  var vote_percentage = ($("p").data("vote-percentage"));
-  console.log(vote_percentage + "expected vote_percentage to be greater than 0");
+    // pass vote_percentage into an array
+    var upvote_arr = [vote_percentage];
 
-  var total_votes = [upvotes + downvotes];
-  var upvote_arr = [vote_percentage];
+    // renders graph for each place
+    draw( upvote_arr, id );
 
+  });
 
-  draw( upvote_arr );
+  // drawing logic
+  function draw( percentage, id ) {
 
-  //drawing logic
-  function draw( percentage ) {
+    var graph = '#graph' + id;
+
+    console.log(graph);
 
     //define overall width and height of bar
     var width = 320,
@@ -67,7 +77,7 @@ $( document ).ready(function () {
       .domain([0, d3.max(relativeFill)]);
 
     //sets the attributes of svg #graph
-    var chart = d3.select("#graph")
+    var chart = d3.select(graph)
       //attribute width
       .attr("width", width)
       //number of bar charts, one per element in percentage array
@@ -81,6 +91,8 @@ $( document ).ready(function () {
       .attr("transform", function (ele, ind) {
         return "translate(0," + ind * barHeight + ")";
       });
+
+    console.log(bar);
 
     //define background fill
     bar.append("rect")

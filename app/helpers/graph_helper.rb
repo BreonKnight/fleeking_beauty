@@ -13,7 +13,6 @@ module GraphHelper
     if (upvotes == 0)
       0
     else
-      # percentage = ((upvotes / (downvotes + upvotes) ) * 100)
       totalvotes = downvotes.to_f + upvotes.to_f
       ratio = upvotes.to_f / totalvotes
       percentage = ratio * 100
