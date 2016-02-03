@@ -1,17 +1,21 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-4">
 		  <div class="local-card">
       	<h1 class="col-md-4 vote center-block" id=<%= @place.id %> data-upvotes=<%= @place.upvotes.count %> data-downvotes=<%= @place.downvotes.count %> data-vote-percentage=<%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %> ><%= @place.name.upcase %> is <%= calculate_upvote_percentage( @place.upvotes.count, @place.downvotes.count ) %>% beautiful</h1>
+        
       	<svg class="graph" id=<%= "graph#{@place.id}" %> ></svg>
       </div>
     </div>
   </div>
+
 	<div class="row">
-			<% @urls.each do |url| %>
-				<div class="col-md-4 photoTile">
-				<%= image_tag url, size: "320x426", class: "img-responsive" %>
-				</div>
-			<% end %>
+		<% @urls.each do |url| %>
+			<div class="col-md-4 photoTile">
+  			<%= image_tag url, height: "400", class: "img-responsive" %>
+			</div>
+		<% end %>
 	</div>
+
 </div>
