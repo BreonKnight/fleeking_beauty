@@ -23,10 +23,11 @@ class PlacesController < ApplicationController
 
     #getting id for place to be shown
     @place = Place.find_by_id(params[:id])
-
+    
     #accessing search helper to get photo for place
-    @urls = searchFlickr(@place)
-
+    recent_votes = @place.upvotes.last(24)
+    @urls = recent_votes.collect {| vote | vote.photourl } 
+  
     #gets upvotes for the place
     @upvotes = @place.upvotes.count
 
@@ -34,7 +35,7 @@ class PlacesController < ApplicationController
     @downvotes = @place.downvotes.count
 
     #takes the upvotes and divides it by the downvotes and creates a ratio
-    @vote_percentage = calculate_upvote_percentage(@upvotes,@downvotes)
+    @vote_percentage = calculate_upvote_percentage( @upvotes, @downvotes )
 
   end
 
