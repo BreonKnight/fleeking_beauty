@@ -22,6 +22,10 @@ class PlacesController < ApplicationController
     places = Place.all
     coordinates = places.collect { | place | place.lat+","+place.lon}
     p "Expecting a collection of lat/long #{coordinates}"
+    #compare 
+    # coordinates.each do | coordinate_pair |
+    compare_coordinates(new_place)
+    # end
 
     
    
