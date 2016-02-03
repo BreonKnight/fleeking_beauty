@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include GraphHelper
   include SearchHelper
+  include UsersHelper
   # This allows jQuery to interact with the controllers
   respond_to :js, :html
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
   def index
     @users = User.last(24)
     render :index
