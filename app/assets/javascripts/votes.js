@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	console.log("Sanity check is working!");
+	console.log("Coooooooookiiiiiiieees!");
 
 	$('#hotbut').on("click", function (e) {
 		p_id = $('#current_img').attr('data-place');
@@ -19,8 +19,8 @@ $(document).ready(function() {
 	});
 
 	$('#notbut').on("click", function (e) {
-		p_id = $('#current_img').attr('data-place')
-		p_url = $('#current_img').attr('src')
+		p_id = $('#current_img').attr('data-place');
+		p_url = $('#current_img').attr('src');
 		$.ajax({
 			method: "POST",
 			url: "/vote",
@@ -35,7 +35,12 @@ $(document).ready(function() {
 	});
 
 	function generatePhoto(imgUrl, imgPlace) {
-		replacement_image ="<img src='"+imgUrl+"'"+" data-place='"+imgPlace+"'"+" id='"+"current_img"+"'"+" height='"+"400"+"'"+" width='"+"400"+"'"+"/>";
+		replacement_image = 
+			"<img src='" + imgUrl + "'" + 
+			" data-place='" + imgPlace + "'" + 
+			" id='" + "current_img" + "'" + 
+			" max-height='" + "400" + "'" + 
+			"/>";
 		return replacement_image;
 	}
 	
