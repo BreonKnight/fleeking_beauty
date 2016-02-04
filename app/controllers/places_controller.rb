@@ -9,24 +9,26 @@ class PlacesController < ApplicationController
   end
 
   def create
-    redirect_to place_path
-    # p "===> #{params[:name]}"
-    # place = Place.find_by(name: params[:name])
-    # p "===> Expecting to find matching place #{place}"
-    # p "===> Expecting to return nil for a non-matching place #{place}"
-    # if(place)
-    #   p "This place already exists"
-    # end
-    # #grab params name and geocode it
-    # new_place = get_coordinates(params[:name])
-    # p "Expecting a new geocoded place object #{new_place}"
-    # places = Place.all
-    # coordinates = places.collect { | place | place.lat+","+place.lon}
-    # p "Expecting a collection of lat/long #{coordinates}"
-    # #compare 
-    # # coordinates.each do | coordinate_pair |
-    # compare_coordinates(new_place)
-    # # end
+    place = Place.find_by(name: params[:name])
+    if(place)
+      redirect_to add_place_path, :flash => {:notice => "This place already exists"}
+    end
+    #grab params name and geocode it
+    this_place = name_cleaner(params[:name])
+    new_place = get_coordinates(params[:name], this_place)
+    places = Place.all
+    coordinates = places.collect { | place | place.lat+","+place.lon}
+    search_request = request_assembly(new_place, coordinates)
+    miles = get_distances(search_request)
+    limit = 50
+    result = mileage_checker(limit, miles)
+    p "REAL NAME IS #{params[:name]}"
+    if(result)
+      @place = Place.create({name: params[:name], lat: new_place[:lat], lon: new_place[:lon]})
+      redirect_to add_place_path, :flash => {:notice => "Created new place"}
+    else
+      redirect_to add_place_path, :flash => {:error => "Unable to add new place"}
+    end
   end
 
   def show

@@ -64,7 +64,7 @@ module SearchHelper
     # Limits results to 1 page
     "&page=1" +
     # Limits results per-page to 20 photos
-    "&per_page=20"
+    "&per_page=50"
     response = Net::HTTP.get_response(URI.parse(flickrSearch))
     data = response.body
     data = JSON.parse(data)
