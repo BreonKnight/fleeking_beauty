@@ -49,10 +49,10 @@ module SearchHelper
   end
 
   def searchFlickr(place) 
-    @api_key=ENV['FLICKR_KEY']
+    api_key=ENV['FLICKR_KEY']
     flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search" +
     "&format=json&nojsoncallback=1" +
-    "&api_key=#{@api_key}" +
+    "&api_key=#{api_key}" +
     # limits results to photos only
     "&content_type=1" +
     # using tags to limit search to place name and outdoor
