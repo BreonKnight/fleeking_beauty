@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require bootstrap.min
 //= require d3
 //= require_tree .
 $( document ).ready(function () {
