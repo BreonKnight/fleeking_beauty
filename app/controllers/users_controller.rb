@@ -14,8 +14,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params) # calls user_params method
-    login(@user)
-    redirect_to @user
+    if @user.save
+      flash[:notice] = "Successfully created user"
+      login(@user)
+      redirect_to @user
+    else
+      flash[:error] = @user.errors.full_messages.join(', ')
+      redirect_to new_user_path
+    end
   end
 
   def show
@@ -39,6 +45,8 @@ class UsersController < ApplicationController
     user_id = params[:id]
     user = User.find_by_userName(user_id)
     user_edit_params = params.require(:user).permit(:first_name, :last_name, :avatar)
+      # If we decide to let users update email address, email will be downcased before submission & update
+      user_edit_params[:email].downcase!
     user.update_attributes(user_edit_params)
     redirect_to user_path(user)
   end
