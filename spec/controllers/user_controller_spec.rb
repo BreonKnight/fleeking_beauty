@@ -36,28 +36,28 @@ RSpec.describe UsersController, type: :controller do
 
     describe "POST #create" do
       context "success" do
-        it "adds new upvote to current_user" do
+        it "adds new user" do
           users_count = User.count
           post :create, user: {password: "testtest", first_name: 'Jon', last_name: 'Snow',
-            email: 'email2@email.email', userName: 'user2Name'
-}
-          expect(users_count).to eq(users_count + 1)
+            email: 'email2@email.email', userName: 'user2Name' }
+          expect(User.count).to eq(users_count + 1)
         end
 
-        # it "redirects to 'user_path' after successful create" do
-        #   post :create, article: {title: "blah", content: "blah"}
-        #   expect(response.status).to be(302)
-        #   expect(response.location).to match(/\/articles\/\d+/)
-        # end
+        it "redirects to 'users/userName' after successful create" do
+          post :create, user: {password: "testtest", first_name: 'Jon', last_name: 'Snow',
+            email: 'email2@email.email', userName: 'USER2NAME' }
+          expect(response.status).to be(302)
+          expect(response.location).to match(/\/users\/user2name/)
+        end
       end
 
-    #   context "failure" do
-    #     it "redirects to 'new_article_path' when create fails" do
-    #       # create blank article (assumes validations are set up in article model for presence of title and content)
-    #       post :create, article: { title: nil, content: nil}
-    #       expect(response).to redirect_to(new_article_path)
-    #     end
-    #   end
-    # end
-  end
+      context "failure" do
+        it "redirects to 'new_user_path' when create fails" do
+          # create empty user to test failover validations for empty values
+          post :create, user: {password: nil, first_name: nil, last_name: nil, email: nil, userName: nil }
+          expect(response).to redirect_to(new_user_path)
+        end
+      end
+    end
+
 end
