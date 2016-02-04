@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 
 	def create
 	  user_params = params.require(:user).permit(:email, :password)
+	  	# Sets user's email address to lower case before logging user in
+	  	user_params[:email].downcase!
 	  @user = User.confirm(user_params)
 	  if @user
 	    login(@user)
