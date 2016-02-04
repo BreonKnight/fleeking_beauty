@@ -7,7 +7,7 @@ them into sprints?
 * **[Getting Started](#getting-started):** How can you work with our code?
 * **[Wireframes](#wireframes):** How did we envision the application's user interface?
 * **[User Stories](#user-stories):** How did we plan our features and organize 
-* **[Heroku Link](#heroku--hosted-project)**
+* **[Heroku Link](#heroku-hosted-project)**
 * **[Technologies](#technologies):** What languages, gems, libraries, and frameworks are being used?
 * **[Future Development](#future-development):** What are we hoping to add?
 * **[Contributors](#contributors):** Who made all of this happen?
