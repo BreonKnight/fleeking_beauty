@@ -1,11 +1,12 @@
 # Fleeking Beauty: An App About Aesthetics
 Fleeking Beauty allows users to unleash their aesthetic judgments upon the internet presence of any place on earth.
 Users vote on photos of an unnamed place, judging whether they deem them to be "hot" or "not". We store users' vote data and display it visually using graphs.
+them into sprints?
 
 ## Contents
 * **[Getting Started](#getting--started):** How can you work with our code?
 * **[Wireframes](#wireframes):** How did we envision the application's user interface?
-* **[User Stories](#user--stories):** How did we plan our features and organize them into sprints?
+* **[User Stories](#user--stories):** How did we plan our features and organize 
 * **[Heroku Link](#heroku--hosted--project)**
 * **[Technologies](#technologies):** What languages, gems, libraries, and frameworks are being used?
 * **[Future Development](#future--development):** What are we hoping to add?
