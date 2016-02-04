@@ -1,7 +1,6 @@
 # Fleeking Beauty: An App About Aesthetics
 Fleeking Beauty allows users to unleash their aesthetic judgments upon the internet presence of any place on earth.
 Users vote on photos of an unnamed place, judging whether they deem them to be "hot" or "not". We store users' vote data and display it visually using graphs.
-them into sprints?
 
 ## Contents
 * **[Getting Started](#getting-started):** How can you work with our code?
@@ -90,7 +89,7 @@ them into sprints?
 ---
 
 # Heroku hosted project
-<a href="https://XXXXXXXXXXXXXx.herokuapp.com/" target="_blank">Fleeking Beauty</a>
+[Fleeking Beauty](http://fleetingbeauty.herokuapp.com/ "Fleeking Beauty")
 
 # Technologies
 * Languages
@@ -105,6 +104,14 @@ them into sprints?
 	* bcrypt
 	* RSpec
 	* Bootstrap
+	* Sass
+	* HTTP
+	* Responders
+	* ByeBug
+* Third Party APIs
+	* Flickr
+	* Google Geocoding
+	* Google Map Matrix
 * Database
 	*  PostgreSQL
 
