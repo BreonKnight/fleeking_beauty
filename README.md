@@ -89,7 +89,7 @@ Users vote on photos of an unnamed place, judging whether they deem them to be "
 ---
 
 # Heroku hosted project
-<a href="fleetingbeauty.herokuapp.com/" target="_blank">Fleeking Beauty</a>
+[Fleeking Beauty](fleetingbeauty.herokuapp.com/ "Fleeking Beauty")
 
 # Technologies
 * Languages
