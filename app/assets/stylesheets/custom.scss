@@ -44,3 +44,41 @@ h4.text-center{
 	color: $white;
 }
 
+div.row.team-c{
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 80px;
+	margin-top: 40px;
+}
+
+.footer > .container{
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: $lavenderIndigo;
+}
+
+.pink{
+	color: $teaRose;
+}
+
+.green{
+	color: $caribbeanGreen;
+}
+
+span.text-muted{
+	color: $white;
+	padding-left: 5px;
+}
+
+.full-width-div {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
