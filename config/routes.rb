@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   get "/places/new", to: "places#new", as: "add_place"
   post "/places", to: "places#create"
 
-  get "/about", to: "static_pages#about"
+  get "/about", to: "static_pages#about", as: "about"
 
 end
