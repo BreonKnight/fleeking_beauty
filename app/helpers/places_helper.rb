@@ -16,6 +16,6 @@ require 'json'
     distance = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{new_place[:lat]},#{new_place[:lon]}|&destinations=41.43206,-81.38992&units=imperial&key=www.yourdistanceapikeyhere.edu"))
     #{new_place[:lat]},#{new_place[:lon]}
     print "===> expecting a blob of distance info #{distance}"
+  end
 end
-distance = IzaSyAgvdKz8uVUUjakmnDwiQGG1KZApTXSIOI
-geocodekey = AIzaSyDIL0AuhwH7Lx1duRFYnVUpQsMLPKplBQ8
+
