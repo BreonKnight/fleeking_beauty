@@ -4,7 +4,7 @@ require 'json'
 
   def get_coordinates(name)
     p "===> Expecting name to exist #{name} and to be a string #{name.class}"
-    show_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{name}&key=geocodekey.edu"))
+    show_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{name}&key=#{ENV["GMAPS_GEOCODE"]}"))
     lat = show_this['results'][0]['geometry']['location']['lat'].to_s
     lon = show_this['results'][0]['geometry']['location']['lng'].to_s
     new_place = {name: name, lat: lat, lon: lon}
@@ -13,7 +13,7 @@ require 'json'
 
   def compare_coordinates(new_place)
     # stored_place
-    distance = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{new_place[:lat]},#{new_place[:lon]}|&destinations=41.43206,-81.38992&units=imperial&key=www.yourdistanceapikeyhere.edu"))
+    distance = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{new_place[:lat]},#{new_place[:lon]}|&destinations=41.43206,-81.38992&units=imperial&key=#{ENV["GMAPS_MATRIX"]}"))
     #{new_place[:lat]},#{new_place[:lon]}
     print "===> expecting a blob of distance info #{distance}"
   end
