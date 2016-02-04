@@ -43,8 +43,10 @@ p{
 }
 
 .jumbotron .h1, .jumbotron h1{
-	font-size: 180px;
+	font-size: 50px;
 	color: $teaRose;
+	padding-top: 100px;
+	text-overflow: none;
 }
 
 .navbar.navbar-inverse.navbar-fixed-top{
@@ -86,6 +88,10 @@ a:hover
   padding: 29px 30px 50px 30px;
 }
 
+h1.text-center.brand-msg{
+	font-size:40px;
+}
+
 body{
 	background-color: $black;
 	padding-top: 85px;
@@ -113,7 +119,12 @@ h1.col-md-4.vote{
 }
 .local-card{
 	background-color: $caribbeanGreen;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	width: 350px;
 }
+
+
 
 .votebox{
 	border: 1px solid black;
