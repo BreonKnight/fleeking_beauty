@@ -22,8 +22,8 @@ class PlacesController < ApplicationController
     miles = get_distances(search_request)
     limit = 50
     result = mileage_checker(limit, miles)
-    p "REAL NAME IS #{params[:name]}"
-    if(result)
+    p "RESULT #{miles}"
+    if(result == false)
       @place = Place.create({name: params[:name], lat: new_place[:lat], lon: new_place[:lon]})
       redirect_to add_place_path, :flash => {:notice => "Created new place"}
     else

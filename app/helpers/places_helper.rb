@@ -4,7 +4,6 @@ module PlacesHelper
 
 
   def get_coordinates(real_name, search_string)
-    p "REAL NAME IS #{real_name}"
     show_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{search_string}&key=#{ENV["GMAPS_GEOCODE"]}"))
     lat = show_this['results'][0]['geometry']['location']['lat'].to_s
     lon = show_this['results'][0]['geometry']['location']['lng'].to_s
@@ -27,6 +26,7 @@ module PlacesHelper
   def get_distances(search_request)
     response = JSON.parse(HTTP.get("#{search_request}"))
     #format of the json ["rows"][0]['elements']...needs reducing to get distances
+    p "THIS IS YOUR RESPONSE: #{response}"
     json_reduce = []
     response["rows"][0]['elements'].each do | thing | 
         json_reduce.push(thing)
@@ -49,13 +49,7 @@ module PlacesHelper
   end
 
   def mileage_checker(limit, miles)
-    miles.each do | mile |
-      if(mile <= limit)
-        return false
-      else
-        return true
-      end 
-    end
+    miles.any? {|mile| mile <= limit}
   end
 
   def name_cleaner(place)
