@@ -49,10 +49,10 @@ module SearchHelper
   end
 
   def searchFlickr(place) 
-    @api_key=ENV['FLICKR_KEY']
+    api_key=ENV['FLICKR_KEY']
     flickrSearch = "https://api.flickr.com/services/rest/?method=flickr.photos.search" +
     "&format=json&nojsoncallback=1" +
-    "&api_key=#{@api_key}" +
+    "&api_key=#{api_key}" +
     # limits results to photos only
     "&content_type=1" +
     # using tags to limit search to place name and outdoor
@@ -64,7 +64,7 @@ module SearchHelper
     # Limits results to 1 page
     "&page=1" +
     # Limits results per-page to 20 photos
-    "&per_page=20"
+    "&per_page=50"
     response = Net::HTTP.get_response(URI.parse(flickrSearch))
     data = response.body
     data = JSON.parse(data)

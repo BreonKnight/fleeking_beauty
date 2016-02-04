@@ -37,18 +37,21 @@ $( document ).ready(function () {
   $votesGraphs.each( function ( index )  {
     // get id for the place
     var $id = $(this).attr("id");
-    // save these data attribute values for future graphs
-    var $upvotes = $('#' + $id ).data("upvotes");
-    // var upvotes = ($("p").data("upvotes"));
-    var $downvotes = $('#' + $id ).data("downvotes");
     // calculate drawing using ratio (upvotes : totalvotes)
     var $vote_percentage = $('#' + $id ).data("vote-percentage");
 
-    // pass vote_percentage into an array
-    var upvote_arr = [$vote_percentage];
+    if( $vote_percentage > 0 ) {
+      // save these data attribute values for future graphs
+      var $upvotes = $('#' + $id ).data("upvotes");
+      // var upvotes = ($("p").data("upvotes"));
+      var $downvotes = $('#' + $id ).data("downvotes");
 
-    // renders graph for each place
-    draw( upvote_arr, $id );
+      // pass vote_percentage into an array
+      var upvote_arr = [$vote_percentage];
+
+      // renders graph for each place
+      draw( upvote_arr, $id );
+    }
 
   });
 
@@ -114,12 +117,12 @@ $( document ).ready(function () {
 
     bar.append("text")
       .attr("class", "graph-text" )
-      .attr("x", width - 50 )
+      .attr("x", width - 150 )
       .attr("y", barHeight / 2)
       .attr("dy", ".35em")
       .style("fill", "white")
       .style("font-weight", "bold")
-      .text(percentage + " %");
+      .text(percentage + " % HOT");
 
   }
 

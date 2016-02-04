@@ -9,10 +9,7 @@ require 'json'
   # { lat: '41.8369' },
   # { lon: '87.6847' }
   # ])
-User.destroy_all
-Place.destroy_all
-Upvote.destroy_all
-Downvote.destroy_all 
+ 
 
 #Fake User Data
 User.create(
@@ -58,7 +55,7 @@ def whitespace_eliminator(name)
 end
 
 def geocode(name, search_name)
-  grab_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{search_name}&key=AIzaSyDIL0AuhwH7Lx1duRFYnVUpQsMLPKplBQ8"))
+  grab_this = JSON.parse(HTTP.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{search_name}&key=#{ENV['GMAPS_GEOCODE']}"))
   lat = grab_this['results'][0]['geometry']['location']['lat'].to_s
   lon = grab_this['results'][0]['geometry']['location']['lng'].to_s
   new_place = {name: name, lat: lat, lon: lon}
