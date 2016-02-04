@@ -26,6 +26,7 @@ module PlacesHelper
   def get_distances(search_request)
     response = JSON.parse(HTTP.get("#{search_request}"))
     #format of the json ["rows"][0]['elements']...needs reducing to get distances
+    p "THIS IS YOUR RESPONSE: #{response}"
     json_reduce = []
     response["rows"][0]['elements'].each do | thing | 
         json_reduce.push(thing)
