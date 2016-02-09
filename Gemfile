@@ -57,6 +57,15 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 3.0'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+end
+
 group :production do
   gem 'rails_12factor'
 end
