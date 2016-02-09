@@ -15,4 +15,16 @@ RSpec.describe PlacesController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+  it "assigns @place" do
+    get :new
+    expect(assigns(:place)).to be_instance_of(Place)
+  end
+
+  it "renders the :new view" do
+    get :new
+    expect(response).to render_template(:new)
+  end
+end
+
 end
