@@ -20,4 +20,18 @@ describe "Create a new user" do
     expect(page.current_path).to match(/users\/usernamename/)
   end
 
+  it "displays an error message on duplicate entries" do
+    fill_in "user_first_name", with: "firstName"
+    fill_in "user_last_name", with: "lastName"
+    fill_in "user_userName", with: user.userName
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: "1234abcd"
+    click_button "Sign Up"
+
+    expect(page.current_path).to match(/users\/new/)
+
+    expect(page).to have_content "Username has already been taken"
+    expect(page).to have_content "Email has already been taken"
+  end
+
 end
