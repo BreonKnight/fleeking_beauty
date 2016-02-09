@@ -47,6 +47,8 @@ group :development, :test do
   gem 'ffaker'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development do
