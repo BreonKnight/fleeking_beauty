@@ -33,5 +33,50 @@ describe "Create a new user" do
     expect(page).to have_content "Username has already been taken"
     expect(page).to have_content "Email has already been taken"
   end
+end
 
+describe "Log in session creation" do
+
+  let(:user) { FactoryGirl.create(:user) }
+  before { visit "/login" }
+
+  it "Shows a login form" do
+    expect(page).to have_css("form")
+  end
+
+  it "Logs the user in" do
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: "testtest"
+    click_button "Sign In"
+
+    expect(page.current_path).to match(/users\/username/)
+    expect(page).to have_content "Successfully logged in"
+  end
+
+  context "Error messages when logging in with wrong information" do
+    it "Display an error message" do
+      fill_in "user_email", with: "fail"
+      fill_in "user_password", with: "fail"
+      click_button "Sign In"
+
+      expect(page).to have_content "Incorrect email or password."
+    end
+  end
+end
+
+describe "Destorys login session" do
+
+  let(:user) { FactoryGirl.create(:user) }
+  before do
+    visit "/login"
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: "testtest"
+    click_button "Sign In"
+  end
+
+  it "Logs out user" do
+    visit "/logout"
+
+    expect(page.current_path).to match(root_path)
+  end
 end
