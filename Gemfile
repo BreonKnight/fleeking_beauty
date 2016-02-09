@@ -47,8 +47,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'shoulda'
-  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development do
@@ -57,6 +55,15 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 3.0'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :production do
