@@ -18,111 +18,70 @@
 $(document).ready(function() {
 
   console.log("sanity check");
-  // $.ajax({
-  //   type: "GET",
-  //   contentType: "application/json; charset=utf-8",
-  //   url: '/places/show',
-  //   dataType: 'json',
-  //   success: function (data) {
-  //     draw(data);
 
-  //   },
-  //   error: function (result) {
-  //     error();
-  //   }
-  // });
+  var $votesGraphs = $('.vote');  // assigns array of elements with class 'vote'
 
-  var $votesGraphs = $('.vote');
+  // renders bar graph for each element in $votesGraphs array
+  $votesGraphs.each(function() {
+    var $id = $(this).attr("id"); // gets id of element
+    var $vote_percentage = $('#' + $id).data("vote-percentage");  // gets 'vote-percentage' by id of element
 
-  $votesGraphs.each(function(index) {
-    // get id of the place
-    var $id = $(this).attr("id");
-    // get 'vote-percentage' by id of place, assign to $vote_percentage
-    var $vote_percentage = $('#' + $id).data("vote-percentage");
-
-    // calculate drawing using ratio (upvotes : totalvotes)
+    // renders graph if condition met
     if ($vote_percentage > 0) {
-      // save these data attribute values for future graphs
-      var $upvotes = $('#' + $id).data("upvotes");
-      // var upvotes = ($("p").data("upvotes"));
-
-      // pass vote_percentage into an array
-      var upvote_arr = [$vote_percentage];
-
-      // renders graph for each place
-      draw(upvote_arr, $id);
+      draw($vote_percentage, $id);  // draw function renders graph to view
     }
 
   });
 
-  // drawing logic
+  // draw function defines svg bar graph + renders to view
+  // percentage used for constructing graph
+  // id used for placing graph within correct div
   function draw(percentage, id) {
 
+    // assigns the graph id of svg element
     var graph = '#graph' + id;
 
-    console.log(graph);
-
-    //define overall width and height of bar
-    var width = 320,
+    // defines overall width and height of svg element
+    var barWidth = 320,
       barHeight = 50;
 
-    //defines each element of percentage relative to bar width
-    var relativeFill = [];
+    // defines percentage relative to barWidth
+    var relativeWidth = ((percentage * barWidth) / 100)
 
-    percentage.forEach(function(ele) {
-      ele = ((ele * width) / 100);
-      relativeFill.push(ele);
-    });
-
-    // var x determines width of bar fill
-    var x = d3.scale.linear()
-      .range([0, width])
-      .domain([0, d3.max(relativeFill)]);
-
-    //sets the attributes of svg #graph
+    // sets attributes of svg #graph element
     var chart = d3.select(graph)
-      //attribute width
-      .attr("width", width)
-      //number of bar charts, one per element in percentage array
-      .attr("height", barHeight * relativeFill.length);
+      .attr("width", barWidth)  // sets width
+      .attr("height", barHeight); // sets height
 
-    //bar chart is defined
+    // sets svg #graph g transformation
     var bar = chart.selectAll('g')
-      //data equal to percentage
-      .data(relativeFill)
-      .enter().append("g")
+      .data([relativeWidth])  // sets g data
+      .enter().append("g")  // appends g element to svg
       .attr("transform", function(ele, ind) {
-        return "translate(0," + ind * barHeight + ")";
+        return "translate(0," + ind * barHeight + ")";  // sets g transformation
       });
 
-    console.log(bar);
-
-    //define background fill
+    // appends background rect to svg #graph
     bar.append("rect")
-      //width defined by original value
-      .attr("width", width)
-      //define outline of overall bar
-      .style("fill", "#B3B3FF")
-      //define height of bar
-      .attr("height", barHeight);
+      .attr("width", barWidth)  // sets width
+      .attr("height", barHeight)  // sets height
+      .style("fill", "#B3B3FF");  // sets styled fill
 
-    //define fill with percentage
+    // appends relativeWidth rect to svg #graph
     bar.append("rect")
-      //width defined by upvote value
-      .attr("width", relativeFill)
-      //define height of bar
-      .attr("height", barHeight)
-      //define color of bar
-      .style("fill", "#ff0080");
+      .attr("width", relativeWidth) // sets width
+      .attr("height", barHeight)  // sets height
+      .style("fill", "#ff0080");  // sets styled fill
 
+    // appends text to svg #graph
     bar.append("text")
-      .attr("class", "graph-text")
-      .attr("x", width - 150)
-      .attr("y", barHeight / 2)
-      .attr("dy", ".35em")
-      .style("fill", "white")
-      .style("font-weight", "bold")
-      .text(percentage + " % HOT");
+      .attr("class", "graph-text")  // sets unique "graph-text" class
+      .attr("x", barWidth - 150)  // sets x position of left side of text
+      .attr("y", barHeight / 2) // sets y position of bottom of text
+      .attr("dy", ".35em")  // sets offset y position
+      .style("fill", "white") // sets text color
+      .style("font-weight", "bold") // sets text style
+      .text(percentage + " % HOT"); // sets text
 
   }
 
