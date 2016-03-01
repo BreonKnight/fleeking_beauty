@@ -15,7 +15,7 @@
 //= require bootstrap.min
 //= require d3
 //= require_tree .
-$( document ).ready(function () {
+$(document).ready(function() {
 
   console.log("sanity check");
   // $.ajax({
@@ -31,32 +31,32 @@ $( document ).ready(function () {
   //     error();
   //   }
   // });
-  
+
   var $votesGraphs = $('.vote');
 
-  $votesGraphs.each( function ( index )  {
+  $votesGraphs.each(function(index) {
     // get id for the place
     var $id = $(this).attr("id");
     // calculate drawing using ratio (upvotes : totalvotes)
-    var $vote_percentage = $('#' + $id ).data("vote-percentage");
+    var $vote_percentage = $('#' + $id).data("vote-percentage");
 
-    if( $vote_percentage > 0 ) {
+    if ($vote_percentage > 0) {
       // save these data attribute values for future graphs
-      var $upvotes = $('#' + $id ).data("upvotes");
+      var $upvotes = $('#' + $id).data("upvotes");
       // var upvotes = ($("p").data("upvotes"));
-      var $downvotes = $('#' + $id ).data("downvotes");
+      var $downvotes = $('#' + $id).data("downvotes");
 
       // pass vote_percentage into an array
       var upvote_arr = [$vote_percentage];
 
       // renders graph for each place
-      draw( upvote_arr, $id );
+      draw(upvote_arr, $id);
     }
 
   });
 
   // drawing logic
-  function draw( percentage, id ) {
+  function draw(percentage, id) {
 
     var graph = '#graph' + id;
 
@@ -69,9 +69,9 @@ $( document ).ready(function () {
     //defines each element of percentage relative to bar width
     var relativeFill = [];
 
-    percentage.forEach( function( ele ) {
-      ele = (( ele * width ) / 100 );
-      relativeFill.push( ele );
+    percentage.forEach(function(ele) {
+      ele = ((ele * width) / 100);
+      relativeFill.push(ele);
     });
 
     // var x determines width of bar fill
@@ -91,7 +91,7 @@ $( document ).ready(function () {
       //data equal to percentage
       .data(relativeFill)
       .enter().append("g")
-      .attr("transform", function (ele, ind) {
+      .attr("transform", function(ele, ind) {
         return "translate(0," + ind * barHeight + ")";
       });
 
@@ -116,8 +116,8 @@ $( document ).ready(function () {
       .style("fill", "#ff0080");
 
     bar.append("text")
-      .attr("class", "graph-text" )
-      .attr("x", width - 150 )
+      .attr("class", "graph-text")
+      .attr("x", width - 150)
       .attr("y", barHeight / 2)
       .attr("dy", ".35em")
       .style("fill", "white")
