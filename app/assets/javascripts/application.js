@@ -35,16 +35,16 @@ $(document).ready(function() {
   var $votesGraphs = $('.vote');
 
   $votesGraphs.each(function(index) {
-    // get id for the place
+    // get id of the place
     var $id = $(this).attr("id");
-    // calculate drawing using ratio (upvotes : totalvotes)
+    // get 'vote-percentage' by id of place, assign to $vote_percentage
     var $vote_percentage = $('#' + $id).data("vote-percentage");
 
+    // calculate drawing using ratio (upvotes : totalvotes)
     if ($vote_percentage > 0) {
       // save these data attribute values for future graphs
       var $upvotes = $('#' + $id).data("upvotes");
       // var upvotes = ($("p").data("upvotes"));
-      var $downvotes = $('#' + $id).data("downvotes");
 
       // pass vote_percentage into an array
       var upvote_arr = [$vote_percentage];
