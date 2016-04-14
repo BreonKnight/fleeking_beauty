@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
 
 	def create
-		p "YOUR PARAMS, SIR. #{params}"
 	  user_params = params.require(:user).permit(:email, :password)
 	  	# Sets user's email address to lower case before logging user in
 	  	user_params[:email].downcase!
