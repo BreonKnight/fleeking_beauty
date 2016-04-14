@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
-  get "/vote", to: "votes#new"
+  get "/vote", to: "votes#new", as: "voting"
   post "/vote", to: "votes#create"
 
   # get "/places", to: "places#index", as: "place"
