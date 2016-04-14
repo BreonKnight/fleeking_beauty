@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     user = User.find_by_userName(user_id)
     user_edit_params = params.require(:user).permit(:first_name, :last_name, :avatar)
       # If we decide to let users update email address, email will be downcased before submission & update
-      user_edit_params[:email].downcase!
+      # user_edit_params[:email].downcase!
     user.update_attributes(user_edit_params)
     redirect_to user_path(user)
   end
