@@ -1,3 +1,8 @@
+<style>
+#guestbutton{
+	background-color: white;
+}
+</style>
 <div class="jumbotron hero">
 	<div class="center-block">
     <!-- currently the h1jumbo class does not appear to be styled in users.scss. Can we delete it? -->
@@ -15,6 +20,14 @@
 	   <h1 class="text-center brand-msg"><%= link_to(places_path) do %>
     <strong>Unleash your aesthetic judgment upon the internet presence of any place on earth.</strong>
     <% end %>
+    <br>
+    <br>
+    <br>
+    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+    <%= f.hidden_field :email, value: "#{ENV['GUEST_EMAIL']}"%>
+    <%= f.hidden_field :password, value: "#{ENV['GUEST_PASSWORD']}"%>
+  	<%= f.submit "Login as Guest", id: "guestbutton" %>
+  	<% end %>
 		</h1>
 		</div>
 		</div>
