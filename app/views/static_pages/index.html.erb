@@ -1,3 +1,9 @@
+<style>
+#guestbutton{
+	background-color: #26F9B2;
+	color: white;
+}
+</style>
 <div class="jumbotron hero">
 	<div class="center-block">
     <!-- currently the h1jumbo class does not appear to be styled in users.scss. Can we delete it? -->
@@ -7,7 +13,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 site-info">
-			<h4 class="text-center">Beauty is in the eye of the beholder. What do the places you like say about you? <a href="/users/new" style="color:#26F9B2">Sign up</a> to find out more!!!</h4>
+			<h4 class="text-center">Beauty is in the eye of the beholder. What do the places you like say about you? <a href="/users/new" style="color:#26F9B2">Sign up</a> to find out more.
+				<% if !(current_user) %>
+			  	<br>
+			  	Or try it out first...
+			    <br>
+			    <br>
+			    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+			    <%= f.hidden_field :email, value: "#{ENV['GUEST_EMAIL']}"%>
+			    <%= f.hidden_field :password, value: "#{ENV['GUEST_PASSWORD']}"%>
+			  	<%= f.submit "Login as Guest", id: "guestbutton" %>
+			  	<% end %>
+			<% end %>
+			</h4>
+
 		</div>
 	</div>
 	<div class="row">
@@ -15,6 +34,7 @@
 	   <h1 class="text-center brand-msg"><%= link_to(places_path) do %>
     <strong>Unleash your aesthetic judgment upon the internet presence of any place on earth.</strong>
     <% end %>
+  
 		</h1>
 		</div>
 		</div>
