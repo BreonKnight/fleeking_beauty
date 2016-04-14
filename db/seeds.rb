@@ -28,6 +28,13 @@ User.create(
 	password_digest: "haha"
 	)
 
+User.create(
+  email: ENV["GUEST_EMAIL"],
+  first_name: "Cornelia",
+  last_name: "Guestington",
+  userName: "yourbestguesst",
+  password_digest: ENV['GUEST_PASSWORD']
+  )
 
 #Fake Place data
 more_places = ["San Francisco", "New York", "Tokyo", "Hong Kong", "Los Angeles", "Berlin", "Cairo", "Santiago", "Perth", "Seoul", "Joshua Tree National Park", "Vladivostok", "Bahia", "Davenport", "Worcester", "Detroit", "Singapore", "Lagos", "Krabi", "Bucharest"]
