@@ -1,3 +1,6 @@
 machine:
+  pre:
+    - cd /home/ubuntu/.pyenv && git pull && cd -
   python:
     version: 2.7.12
+    
